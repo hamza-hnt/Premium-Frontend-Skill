@@ -1,0 +1,523 @@
+{
+  "checkedDate": "2026-10-10",
+  "timezone": "Europe/Paris",
+  "revision": "d86fccbd477786f94ca7eb891fbe0ec039d3cd3b",
+  "browser": "156.0.8078.4",
+  "playwright": "1.64.0",
+  "axe": "4.13.0",
+  "node": "26.8.1",
+  "versions": {
+    "vite": {
+      "dependencies": {
+        "react": "19.3.0",
+        "react-dom": "19.3.0",
+        "tailwindcss": "4.3.3",
+        "motion": "12.23.12",
+        "gsap": "3.13.0"
+      },
+      "devDependencies": {
+        "typescript": "5.9.3",
+        "@types/react": "19.2.14",
+        "@types/react-dom": "19.2.3",
+        "@types/node": "22.19.15",
+        "vite": "8.3.4",
+        "@vitejs/plugin-react": "6.1.2",
+        "@tailwindcss/vite": "4.3.3"
+      }
+    },
+    "next": {
+      "dependencies": {
+        "react": "19.3.0",
+        "react-dom": "19.3.0",
+        "tailwindcss": "4.3.3",
+        "motion": "12.23.12",
+        "next": "16.4.0"
+      },
+      "devDependencies": {
+        "typescript": "5.9.3",
+        "@types/react": "19.2.14",
+        "@types/react-dom": "19.2.3",
+        "@types/node": "22.19.15",
+        "@tailwindcss/postcss": "4.3.3"
+      }
+    }
+  },
+  "summary": {
+    "total": 24,
+    "passed": 24,
+    "failed": 0,
+    "screenshots": 27
+  },
+  "components": [
+    {
+      "id": "react-bits:blur-text",
+      "variant": "TS-TW",
+      "sourceFingerprint": "ac6e061fe67c495bfc4568949838c5cbebadddeade5bd93d1199cd9dfa8d7c30"
+    },
+    {
+      "id": "react-bits:count-up",
+      "variant": "TS-TW",
+      "sourceFingerprint": "7345f6e28bd3339ba4cc41328a80c3befa05ffb16898066f2bb28d1a43b6c3f0"
+    },
+    {
+      "id": "react-bits:fade-content",
+      "variant": "TS-TW",
+      "sourceFingerprint": "a7b60624b8048a90af8cc802f083eaf55acabc6fffe7d63cf89a67bb9caf5038"
+    },
+    {
+      "id": "react-bits:shape-grid",
+      "variant": "TS-TW",
+      "sourceFingerprint": "2e8ae54f2b4c8ef37e09f294822e60f425b19e8a232d9f636eb875945b3fff9f"
+    },
+    {
+      "id": "react-bits:spotlight-card",
+      "variant": "TS-TW",
+      "sourceFingerprint": "d8886f42b6b9e23069faa98b4d71e982934604ef545ba8e66337ea48cc487167"
+    },
+    {
+      "id": "react-bits:squish-switch",
+      "variant": "TS-TW",
+      "sourceFingerprint": "145a6b89c1a993d78409a4f8a1eec88c5e60926b6bce609f2c3ba6be10fe38bf"
+    }
+  ],
+  "cases": [
+    {
+      "label": "marketing-390-motion",
+      "width": 390,
+      "reduced": false,
+      "route": "marketing",
+      "errors": [],
+      "dimensions": {
+        "viewport": 390,
+        "document": 390
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 18
+      },
+      "passed": true
+    },
+    {
+      "label": "dashboard-390-motion",
+      "width": 390,
+      "reduced": false,
+      "route": "dashboard",
+      "errors": [],
+      "dimensions": {
+        "viewport": 390,
+        "document": 390
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 27
+      },
+      "passed": true
+    },
+    {
+      "label": "settings-390-motion",
+      "width": 390,
+      "reduced": false,
+      "route": "settings",
+      "errors": [],
+      "dimensions": {
+        "viewport": 390,
+        "document": 390
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 25
+      },
+      "passed": true
+    },
+    {
+      "label": "next-390-motion",
+      "width": 390,
+      "reduced": false,
+      "route": "next",
+      "errors": [],
+      "dimensions": {
+        "viewport": 390,
+        "document": 390
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 21
+      },
+      "passed": true
+    },
+    {
+      "label": "marketing-390-reduced",
+      "width": 390,
+      "reduced": true,
+      "route": "marketing",
+      "errors": [],
+      "dimensions": {
+        "viewport": 390,
+        "document": 390
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 17
+      },
+      "passed": true
+    },
+    {
+      "label": "dashboard-390-reduced",
+      "width": 390,
+      "reduced": true,
+      "route": "dashboard",
+      "errors": [],
+      "dimensions": {
+        "viewport": 390,
+        "document": 390
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 27
+      },
+      "passed": true
+    },
+    {
+      "label": "settings-390-reduced",
+      "width": 390,
+      "reduced": true,
+      "route": "settings",
+      "errors": [],
+      "dimensions": {
+        "viewport": 390,
+        "document": 390
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 24
+      },
+      "passed": true
+    },
+    {
+      "label": "next-390-reduced",
+      "width": 390,
+      "reduced": true,
+      "route": "next",
+      "errors": [],
+      "dimensions": {
+        "viewport": 390,
+        "document": 390
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 22
+      },
+      "passed": true
+    },
+    {
+      "label": "marketing-768-motion",
+      "width": 768,
+      "reduced": false,
+      "route": "marketing",
+      "errors": [],
+      "dimensions": {
+        "viewport": 768,
+        "document": 768
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 18
+      },
+      "passed": true
+    },
+    {
+      "label": "dashboard-768-motion",
+      "width": 768,
+      "reduced": false,
+      "route": "dashboard",
+      "errors": [],
+      "dimensions": {
+        "viewport": 768,
+        "document": 768
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 27
+      },
+      "passed": true
+    },
+    {
+      "label": "settings-768-motion",
+      "width": 768,
+      "reduced": false,
+      "route": "settings",
+      "errors": [],
+      "dimensions": {
+        "viewport": 768,
+        "document": 768
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 25
+      },
+      "passed": true
+    },
+    {
+      "label": "next-768-motion",
+      "width": 768,
+      "reduced": false,
+      "route": "next",
+      "errors": [],
+      "dimensions": {
+        "viewport": 768,
+        "document": 768
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 21
+      },
+      "passed": true
+    },
+    {
+      "label": "marketing-768-reduced",
+      "width": 768,
+      "reduced": true,
+      "route": "marketing",
+      "errors": [],
+      "dimensions": {
+        "viewport": 768,
+        "document": 768
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 17
+      },
+      "passed": true
+    },
+    {
+      "label": "dashboard-768-reduced",
+      "width": 768,
+      "reduced": true,
+      "route": "dashboard",
+      "errors": [],
+      "dimensions": {
+        "viewport": 768,
+        "document": 768
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 27
+      },
+      "passed": true
+    },
+    {
+      "label": "settings-768-reduced",
+      "width": 768,
+      "reduced": true,
+      "route": "settings",
+      "errors": [],
+      "dimensions": {
+        "viewport": 768,
+        "document": 768
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 24
+      },
+      "passed": true
+    },
+    {
+      "label": "next-768-reduced",
+      "width": 768,
+      "reduced": true,
+      "route": "next",
+      "errors": [],
+      "dimensions": {
+        "viewport": 768,
+        "document": 768
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 22
+      },
+      "passed": true
+    },
+    {
+      "label": "marketing-1440-motion",
+      "width": 1440,
+      "reduced": false,
+      "route": "marketing",
+      "errors": [],
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 18
+      },
+      "passed": true
+    },
+    {
+      "label": "dashboard-1440-motion",
+      "width": 1440,
+      "reduced": false,
+      "route": "dashboard",
+      "errors": [],
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 26
+      },
+      "passed": true
+    },
+    {
+      "label": "settings-1440-motion",
+      "width": 1440,
+      "reduced": false,
+      "route": "settings",
+      "errors": [],
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 25
+      },
+      "passed": true
+    },
+    {
+      "label": "next-1440-motion",
+      "width": 1440,
+      "reduced": false,
+      "route": "next",
+      "errors": [],
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 21
+      },
+      "passed": true
+    },
+    {
+      "label": "marketing-1440-reduced",
+      "width": 1440,
+      "reduced": true,
+      "route": "marketing",
+      "errors": [],
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 17
+      },
+      "passed": true
+    },
+    {
+      "label": "dashboard-1440-reduced",
+      "width": 1440,
+      "reduced": true,
+      "route": "dashboard",
+      "errors": [],
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 26
+      },
+      "passed": true
+    },
+    {
+      "label": "settings-1440-reduced",
+      "width": 1440,
+      "reduced": true,
+      "route": "settings",
+      "errors": [],
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": ["color-contrast"],
+        "passes": 24
+      },
+      "passed": true
+    },
+    {
+      "label": "next-1440-reduced",
+      "width": 1440,
+      "reduced": true,
+      "route": "next",
+      "errors": [],
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440
+      },
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 22
+      },
+      "passed": true
+    }
+  ],
+  "consumer": {
+    "checkedAt": "2026-10-09T22:40:48.450Z",
+    "node": "v26.8.1",
+    "passed": true,
+    "externalWorkingDirectory": true,
+    "installedFrom": "allowlisted local archive, fresh npm ci",
+    "searchFirst": "react-bits:blur-text",
+    "inspect": "passed",
+    "sourceTransport": "fresh pinned HTTPS retrieval (no shared Git/download cache)",
+    "apply": "installed",
+    "repeat": "already-installed",
+    "typecheck": "passed",
+    "files": [
+      {
+        "path": "components/react-bits/BlurText/BlurText.tsx",
+        "sha256": "c824a558bb484521abe6adac25ba8af839de81434018a4fe044fc9969fe353e3"
+      },
+      {
+        "path": ".premium-frontend/licences/react-bits-d86fccbd477786f94ca7eb891fbe0ec039d3cd3b.md",
+        "sha256": "f4c33af6739191537738662d223b68d77bc226f4b57ea883e16481d8cc5c73c9"
+      }
+    ],
+    "hostAutoDiscovery": "not exercised; explicit absolute script invocation"
+  },
+  "tooling": {
+    "controlledTests": 32,
+    "nodeVersions": ["22.14.0", "26.8.1"],
+    "typecheck": "passed",
+    "catalogueDeterministic": true
+  }
+}

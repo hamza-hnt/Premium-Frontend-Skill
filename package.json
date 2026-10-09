@@ -1,0 +1,39 @@
+{
+  "name": "premium-frontend-skill",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A portable React design skill with a local React Bits metadata catalogue and safe source retrieval.",
+  "engines": {
+    "node": ">=22.12.0 <27"
+  },
+  "scripts": {
+    "registry:sync": "tsx scripts/sync.ts",
+    "components:search": "tsx scripts/search.ts",
+    "components:inspect": "tsx scripts/inspect.ts",
+    "components:install": "tsx scripts/install.ts",
+    "validate": "tsx scripts/validate.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "examples:create": "tsx examples/create.ts",
+    "test:browser": "tsx examples/browser-check.ts",
+    "test:live": "tsx scripts/live-check.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "skill:bundle": "tsx scripts/bundle.ts",
+    "test:consumer": "tsx scripts/consumer-check.ts"
+  },
+  "dependencies": {
+    "semver": "7.8.5",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.64.0",
+    "@types/node": "26.6.5",
+    "@types/semver": "7.8.0",
+    "prettier": "3.6.2",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,425 @@
+{
+  "react-bits:blur-text": {
+    "tags": ["subtle", "text", "reveal", "editorial", "headline", "calm"],
+    "suitable": ["Marketing hero headlines", "Short section introductions"],
+    "unsuitable": [
+      "Dense tables",
+      "Long paragraphs",
+      "Essential labels that must appear immediately"
+    ],
+    "selection": "Use a single reveal to establish hierarchy; leave the rest of the page readable from first paint.",
+    "integration": [
+      "Wrap with a semantic heading; the component itself renders a paragraph.",
+      "Use word animation and a short delay. Replace with plain text for reduced motion.",
+      "Requires motion; confirm heading wraps at narrow widths."
+    ],
+    "accessibility": [
+      "Avoid duplicate screen-reader text when adding a fallback.",
+      "Keep the complete message available without animation."
+    ],
+    "reducedMotion": "Use a static text branch; source references do not prove a complete reduced-motion path.",
+    "performance": {
+      "risk": "low",
+      "basis": "estimate",
+      "reason": "Small text DOM animation, but blur and many letters increase paint work."
+    }
+  },
+  "react-bits:count-up": {
+    "tags": ["metric", "number", "dashboard", "statistic", "subtle"],
+    "suitable": [
+      "One prominent summary metric",
+      "A short completed-total transition"
+    ],
+    "unsuitable": [
+      "Frequently updating trading data",
+      "All cells in a table",
+      "Screen-reader live announcements each frame"
+    ],
+    "selection": "Keep labels, units and precision fixed; animation should not delay comprehension.",
+    "integration": [
+      "Requires motion. Reserve enough width to prevent digit layout shifts.",
+      "Provide the final formatted value to assistive technology and reduced-motion users."
+    ],
+    "accessibility": [
+      "Hide changing visual digits from screen readers and expose one stable value."
+    ],
+    "reducedMotion": "Render the final number directly when reduced motion is requested.",
+    "performance": {
+      "risk": "low",
+      "basis": "estimate",
+      "reason": "Few animated numbers are inexpensive; many simultaneous counters can cause layout work."
+    }
+  },
+  "react-bits:fade-content": {
+    "tags": ["subtle", "reveal", "entrance", "wrapper", "calm"],
+    "suitable": ["A supporting marketing block", "A secondary empty state"],
+    "unsuitable": [
+      "Primary navigation",
+      "Large dashboards",
+      "Content users need immediately"
+    ],
+    "selection": "Choose a short entrance on one supporting block; do not cascade the entire interface.",
+    "integration": [
+      "Requires GSAP and ScrollTrigger. Keep content visible in a static fallback.",
+      "In Next.js place below a client boundary. Review effect cleanup when navigating."
+    ],
+    "accessibility": ["Focus must never land on hidden controls."],
+    "reducedMotion": "Bypass the wrapper and render children directly.",
+    "performance": {
+      "risk": "low",
+      "basis": "estimate",
+      "reason": "Opacity and short translation on a small section; scroll triggers still add overhead."
+    }
+  },
+  "react-bits:animated-content": {
+    "tags": ["scroll", "entrance", "direction", "reveal"],
+    "suitable": [
+      "An editorial feature section",
+      "A product illustration entrance"
+    ],
+    "unsuitable": ["Every card in a data grid", "Persistent navigation"],
+    "selection": "Use only when the entrance supports the reading sequence.",
+    "integration": [
+      "Requires GSAP. Constrain distance and duration.",
+      "Check scroll-trigger behavior after route changes and dynamic content."
+    ],
+    "accessibility": ["Do not animate focused content out of view."],
+    "reducedMotion": "Bypass the animated wrapper.",
+    "performance": {
+      "risk": "medium",
+      "basis": "estimate",
+      "reason": "Scroll triggers and large moving content can add main-thread and compositing work."
+    }
+  },
+  "react-bits:spotlight-card": {
+    "tags": ["card", "subtle", "pointer", "light", "surface"],
+    "suitable": [
+      "A small set of marketing feature cards",
+      "A featured project preview"
+    ],
+    "unsuitable": [
+      "Dense dashboard cells",
+      "Forms with distracting pointer effects"
+    ],
+    "selection": "Use a faint spotlight within an already well-composed card; keep text contrast independent of it.",
+    "integration": [
+      "React-only runtime in the indexed variant. Style the surface for the existing palette.",
+      "Pointer appearance is decoration; actions remain native buttons or links inside the card."
+    ],
+    "accessibility": [
+      "Do not turn a generic div into the only clickable control.",
+      "Check text contrast at the brightest spot."
+    ],
+    "reducedMotion": "Use an ordinary styled card if the source still responds excessively to pointer movement.",
+    "performance": {
+      "risk": "low",
+      "basis": "estimate",
+      "reason": "Pointer tracking and surface painting; limit the number and area of cards."
+    }
+  },
+  "react-bits:star-border": {
+    "tags": ["border", "accent", "button", "call", "to", "action"],
+    "suitable": ["One primary marketing call to action"],
+    "unsuitable": [
+      "Multiple competing CTAs",
+      "Dense toolbars",
+      "Destructive actions"
+    ],
+    "selection": "A moving border is a strong accent; use it once and keep the label calm.",
+    "integration": [
+      "Inspect polymorphic element props and retain button or anchor semantics.",
+      "Constrain the border to a small area; test hover and focus independently."
+    ],
+    "accessibility": [
+      "The animated border must not be the only focus indicator."
+    ],
+    "reducedMotion": "Replace with a static border or disable the animation.",
+    "performance": {
+      "risk": "medium",
+      "basis": "estimate",
+      "reason": "Continuous canvas or border rendering can add work even on a small control."
+    }
+  },
+  "react-bits:shape-grid": {
+    "tags": ["background", "grid", "geometric", "technical", "canvas"],
+    "suitable": ["A restrained technical hero backdrop"],
+    "unsuitable": [
+      "Behind tables or form inputs",
+      "Full-page continuous motion on low-power targets"
+    ],
+    "selection": "Keep the grid faint, clipped to the hero, and separated from text by a solid surface.",
+    "integration": [
+      "Canvas 2D; give the parent explicit dimensions.",
+      "Use a low speed and remove pointer interception. Keep the canvas decorative."
+    ],
+    "accessibility": [
+      "Set the wrapper aria-hidden and ensure text contrast without the effect."
+    ],
+    "reducedMotion": "Unmount the canvas and use a static CSS grid instead; speed zero may still schedule frames.",
+    "performance": {
+      "risk": "medium",
+      "basis": "estimate",
+      "reason": "Canvas repaint loop scales with area and pixel density."
+    }
+  },
+  "react-bits:squish-switch": {
+    "tags": ["settings", "switch", "toggle", "micro", "feedback", "form"],
+    "suitable": ["A clearly labelled boolean preference"],
+    "unsuitable": ["Irreversible actions", "Unlabelled icon toggles"],
+    "selection": "Use for a low-stakes setting where a small tactile response clarifies state.",
+    "integration": [
+      "Requires motion. Prefer controlled checked/onChange props.",
+      "Supply ariaLabel and test Space, Enter, pointer and disabled states.",
+      "Persist state in the application; the component is only presentation."
+    ],
+    "accessibility": [
+      "Check switch role, accessible name and aria-checked; source support is not certification."
+    ],
+    "reducedMotion": "Source references useReducedMotion; validate the controlled state and provide a native checkbox fallback if needed.",
+    "performance": {
+      "risk": "low",
+      "basis": "estimate",
+      "reason": "A single spring-driven thumb is small; avoid animating entire settings rows."
+    }
+  },
+  "react-bits:shiny-text": {
+    "tags": ["text", "accent", "highlight", "shimmer"],
+    "suitable": ["A short decorative eyebrow label"],
+    "unsuitable": [
+      "Body copy",
+      "Critical status text",
+      "Many headings at once"
+    ],
+    "selection": "A brief shimmer can emphasize a secondary label, but the text must read at its dimmest state.",
+    "integration": [
+      "Check the variant dependencies and contrast across gradient positions.",
+      "Use a solid text color for static and reduced-motion branches."
+    ],
+    "accessibility": [
+      "Do not use low-opacity gradient text for essential instructions."
+    ],
+    "reducedMotion": "Render plain text or a disabled/static state verified in source.",
+    "performance": {
+      "risk": "low",
+      "basis": "estimate",
+      "reason": "Animated text paint; long text and simultaneous instances increase cost."
+    }
+  },
+  "react-bits:split-text": {
+    "tags": ["typography", "stagger", "headline", "editorial", "reveal"],
+    "suitable": ["A short campaign headline"],
+    "unsuitable": ["Long articles", "Rapidly changing copy"],
+    "selection": "Prefer words to letters unless the brand calls for a theatrical reveal.",
+    "integration": [
+      "Requires GSAP; inspect SplitText integration and font-loading behavior.",
+      "Preserve a semantic heading and check wrapping after fonts load."
+    ],
+    "accessibility": [
+      "Ensure split text does not create fragmented screen-reader output."
+    ],
+    "reducedMotion": "Use the unsplit original text.",
+    "performance": {
+      "risk": "medium",
+      "basis": "estimate",
+      "reason": "Text splitting and per-letter animation create many nodes and layout dependencies."
+    }
+  },
+  "react-bits:decrypted-text": {
+    "tags": ["text", "scramble", "technology", "reveal"],
+    "suitable": ["A playful developer tool introduction"],
+    "unsuitable": [
+      "Financial numbers",
+      "Safety instructions",
+      "Dashboard status labels"
+    ],
+    "selection": "Reserve scrambling for nonessential copy that can tolerate momentary ambiguity.",
+    "integration": [
+      "Supply a readable final state. Keep the activation intentional.",
+      "Check the live region strategy before animating changes."
+    ],
+    "accessibility": ["Expose the final phrase as a stable accessible name."],
+    "reducedMotion": "Show the final phrase immediately.",
+    "performance": {
+      "risk": "medium",
+      "basis": "estimate",
+      "reason": "Repeated character updates can trigger DOM work."
+    }
+  },
+  "react-bits:gradient-text": {
+    "tags": ["gradient", "typography", "highlight"],
+    "suitable": ["A brand-coloured word in a hero"],
+    "unsuitable": ["Dense text", "Low-contrast palettes"],
+    "selection": "Derive the gradient from the brand and test every colour stop against its background.",
+    "integration": [
+      "Inspect animation props and provide a static brand colour.",
+      "Do not use gradient alone to indicate a link or state."
+    ],
+    "accessibility": ["Measure the lowest contrast across the gradient."],
+    "reducedMotion": "Freeze the gradient or use a solid colour.",
+    "performance": {
+      "risk": "low",
+      "basis": "estimate",
+      "reason": "Small text regions are modest; perpetual gradients still repaint."
+    }
+  },
+  "react-bits:click-spark": {
+    "tags": ["interaction", "spark", "feedback", "playful", "canvas"],
+    "suitable": ["A playful nonessential acknowledgement"],
+    "unsuitable": [
+      "Payment forms",
+      "Dense productivity tools",
+      "Every click across a site"
+    ],
+    "selection": "Keep sparks scoped to one optional interaction; normal state feedback does the real work.",
+    "integration": [
+      "Canvas-based decoration. Preserve the child control event handlers.",
+      "Do not intercept pointer events needed for selection or forms."
+    ],
+    "accessibility": [
+      "Native keyboard behavior and visible success text must remain."
+    ],
+    "reducedMotion": "Unmount the spark wrapper or render children directly.",
+    "performance": {
+      "risk": "medium",
+      "basis": "estimate",
+      "reason": "Burst rendering is bounded but repeated clicks can accumulate particles."
+    }
+  },
+  "react-bits:magnet": {
+    "tags": ["hover", "pointer", "attraction", "playful"],
+    "suitable": ["An isolated brand action"],
+    "unsuitable": [
+      "Precise controls",
+      "Dense navigation",
+      "Touch-only interactions"
+    ],
+    "selection": "Use only where slight pointer displacement will not make the target harder to acquire.",
+    "integration": [
+      "Keep displacement small and target dimensions stable.",
+      "Retain native focus styles and a touch-safe layout."
+    ],
+    "accessibility": [
+      "Keyboard users need a stationary control with equal functionality."
+    ],
+    "reducedMotion": "Render children without positional movement.",
+    "performance": {
+      "risk": "low",
+      "basis": "estimate",
+      "reason": "Pointer-driven transforms on a few elements are modest."
+    }
+  },
+  "react-bits:glare-hover": {
+    "tags": ["card", "surface", "glare", "highlight"],
+    "suitable": ["Product artwork", "An isolated showcase tile"],
+    "unsuitable": ["Readable document cards", "High-density lists"],
+    "selection": "Treat glare as material detail and keep it away from important text.",
+    "integration": [
+      "Check hover behavior on touch and disable when pointer is coarse.",
+      "Keep the content in a stable stacking layer."
+    ],
+    "accessibility": ["Do not conceal content on focus or hover."],
+    "reducedMotion": "Use a static surface and border.",
+    "performance": {
+      "risk": "low",
+      "basis": "estimate",
+      "reason": "Surface transforms and gradients add paint/compositing work."
+    }
+  },
+  "react-bits:logo-loop": {
+    "tags": ["logos", "partners", "marquee", "social", "proof"],
+    "suitable": ["A small partner strip with meaningful logos"],
+    "unsuitable": ["Required navigation", "Critical announcements"],
+    "selection": "Prefer a static logo row first; motion is justified only when it improves a compact showcase.",
+    "integration": [
+      "Set image dimensions and provide local, licensed logo assets.",
+      "Expose a pause mechanism for continuous movement."
+    ],
+    "accessibility": [
+      "Avoid repeating accessible names for visual clones; label meaningful logos."
+    ],
+    "reducedMotion": "Render a wrapping static list of logos.",
+    "performance": {
+      "risk": "medium",
+      "basis": "estimate",
+      "reason": "Continuous transforms and duplicated content consume resources."
+    }
+  },
+  "react-bits:aurora": {
+    "tags": ["background", "atmospheric", "colourful", "webgl"],
+    "suitable": ["An expressive campaign hero"],
+    "unsuitable": [
+      "SaaS dashboards",
+      "Mobile-first forms",
+      "Several animated backgrounds"
+    ],
+    "selection": "Select only when the atmosphere is central to the brand; keep it to one bounded section.",
+    "integration": [
+      "Inspect OGL/WebGL requirements and test GPU fallback.",
+      "Set explicit dimensions, reduce resolution and hide when offscreen."
+    ],
+    "accessibility": [
+      "Keep the background decorative and text on a contrast-stable surface."
+    ],
+    "reducedMotion": "Replace with a static colour treatment and do not mount the renderer.",
+    "performance": {
+      "risk": "high",
+      "basis": "estimate",
+      "reason": "GPU shader loop, canvas size and device pixel ratio can be expensive."
+    }
+  },
+  "react-bits:dot-grid": {
+    "tags": ["background", "dots", "interactive", "technical"],
+    "suitable": ["An abstract hero illustration"],
+    "unsuitable": ["Data tables", "Important form fields"],
+    "selection": "Use as a framed illustration with restrained pointer response.",
+    "integration": [
+      "Inspect animation dependencies and container sizing.",
+      "Make the effect pointer-transparent when behind controls."
+    ],
+    "accessibility": ["Do not encode essential data in decorative dots."],
+    "reducedMotion": "Use a static CSS dot pattern.",
+    "performance": {
+      "risk": "medium",
+      "basis": "estimate",
+      "reason": "Large dot counts and pointer reactions increase work."
+    }
+  },
+  "react-bits:tilted-card": {
+    "tags": ["card", "image", "perspective", "portfolio"],
+    "suitable": ["A featured portfolio image"],
+    "unsuitable": ["Reading-heavy cards", "Clickable grids on touch screens"],
+    "selection": "Use modest tilt on one visual artifact; maintain a stable caption and link.",
+    "integration": [
+      "Set explicit image dimensions and meaningful alt text.",
+      "Check touch fallback and pointer cleanup after unmount."
+    ],
+    "accessibility": [
+      "Make the actual navigation a native link with a visible focus state."
+    ],
+    "reducedMotion": "Use an ordinary figure and caption.",
+    "performance": {
+      "risk": "medium",
+      "basis": "estimate",
+      "reason": "Perspective transforms and pointer springs add compositing work."
+    }
+  },
+  "react-bits:spring-check": {
+    "tags": ["checkbox", "micro", "form", "settings", "feedback"],
+    "suitable": ["A small set of binary preferences"],
+    "unsuitable": ["Bulk-select tables", "Critical confirmations"],
+    "selection": "Use a subtle state transition only after the semantic checked state is clear.",
+    "integration": [
+      "Inspect controlled props, accessible name and disabled behavior.",
+      "Keep validation and persistence in the application."
+    ],
+    "accessibility": [
+      "Test Space, label activation and checked state with assistive technology."
+    ],
+    "reducedMotion": "Inspect source support; substitute a styled native checkbox if necessary.",
+    "performance": {
+      "risk": "low",
+      "basis": "estimate",
+      "reason": "Small spring-driven geometry; many instances should be checked on slower devices."
+    }
+  }
+}

@@ -1,0 +1,135 @@
+@import "tailwindcss";
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f9f7ef;
+  color: #2b4133;
+  font-family: Arial, sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 28px 40px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dfe3d6;
+  padding: 0 0 24px;
+}
+header span {
+  font-size: 12px;
+  color: #5f7256;
+}
+.brand {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+section {
+  padding: 65px 0;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #5f7256;
+}
+h1 {
+  font:
+    52px/1.12 Georgia,
+    serif;
+  max-width: 650px;
+  letter-spacing: -1.5px;
+  margin: 20px 0;
+}
+.intro {
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 580px;
+  color: #596d50;
+}
+.settings-card {
+  margin-top: 35px;
+  padding: 30px !important;
+  border: 1px solid #d9e1cf;
+  border-radius: 10px !important;
+  max-width: 630px;
+  background: white !important;
+  box-shadow: none !important;
+}
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+.subtitle {
+  font-size: 14px;
+  color: #607556;
+}
+.setting {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 28px 0;
+  border-top: 1px solid #e2e9da;
+  margin-top: 24px;
+}
+.setting strong {
+  font-size: 13px;
+}
+.setting p {
+  font-size: 11px;
+  color: #687c5f;
+  margin-top: 6px;
+}
+.save {
+  background: #2e5943;
+  color: white;
+  padding: 12px 17px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.feedback {
+  min-height: 20px;
+  font-size: 12px;
+  margin-top: 17px;
+}
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 3px solid #ac572f !important;
+  outline-offset: 4px !important;
+}
+@media (max-width: 650px) {
+  main {
+    padding: 24px;
+  }
+  header span {
+    max-width: 100px;
+    text-align: right;
+    font-size: 10px;
+  }
+  section {
+    padding: 35px 0;
+  }
+  h1 {
+    font-size: 39px;
+  }
+  .settings-card {
+    padding: 22px !important;
+  }
+  .setting p {
+    max-width: 190px;
+    line-height: 1.6;
+  }
+}
