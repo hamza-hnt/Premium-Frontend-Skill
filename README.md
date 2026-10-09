@@ -56,6 +56,10 @@ React Bits uses a custom **MIT + Commons Clause** text restricting redistributio
 
 ## Validation and examples
 
+The GitHub Actions workflow in `.github/workflows/ci.yml` runs on pushes, pull requests and manual dispatch. It uses Ubuntu 24.04 and the Node version in `.nvmrc`, installs the locked dependencies with `npm ci`, then checks formatting, TypeScript, unit tests, skill/catalogue validity and archive creation. It also verifies that the checks leave tracked files unchanged. Actions are pinned to commit SHAs, repository access is read-only, and newer runs cancel older runs for the same ref.
+
+Default CI uses controlled fixtures and the committed catalogue; it does not sync upstream metadata, fetch React Bits components, install browsers or publish the archive. The live-download, external-consumer and browser checks below remain explicit integration checks. CI establishes technical consistency; generated-site design quality still requires rendered review.
+
 ```bash
 npm run examples:create -- --kind vite
 npm run examples:create -- --kind next
