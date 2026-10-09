@@ -2,24 +2,43 @@
 
 A reusable, English-language coding-agent skill that turns short briefs into distinctive React interfaces with purposeful React Bits interactions. It includes a real metadata catalogue, deterministic search, deep inspection, and a source installer with pinned revisions, integrity checks and collision protection. The agent makes design decisions; local TypeScript scripts perform deterministic operations.
 
-**V1 scope:** React Bits only. No backend, hosted registry, database, vector service, extra model credentials or paid APIs. Aceternity and a visual catalogue are future work. Demo pages are integration fixtures, not the main deliverable.
+**Current scope:** React Bits components, local catalogue search and source installation. The tooling needs no backend, hosted registry, database or additional API keys. Your coding agent and any optional image-generation tools use their own access and account requirements.
 
-## Setup
+## Install in Codex
+
+You need **Node.js 22.12+ below 27**, npm and Git. `.nvmrc` selects Node 22.14.0. The commands below use Bash-compatible syntax for macOS, Linux or WSL; native PowerShell setup has not been tested.
+
+Copy this repository's HTTPS clone URL from GitHub's **Code** menu and replace `REPOSITORY_URL` below. This installs the full skill directly into the user-level skills directory:
 
 ```bash
-npm ci
-npm run validate
-npm test
-npm run typecheck
+SKILLS_DIR="$HOME/.agents/skills"
+SKILL_ROOT="$SKILLS_DIR/premium-frontend-skill"
+mkdir -p "$SKILLS_DIR" &&
+  git clone "REPOSITORY_URL" "$SKILL_ROOT" &&
+  cd "$SKILL_ROOT" &&
+  npm ci &&
+  npm run validate
 ```
 
-Use Node **22.12+ below 27**, npm and Git. `.nvmrc` selects 22.14.0; see [the verification report](docs/verification.md) for exact configurations exercised. Tool versions are locked. Read [installation instructions](docs/installation.md) to install the full folder into Codex through a repository-local symlink or portable local archive. No global agent configuration is modified.
+The [Codex skill documentation](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills) lists `~/.agents/skills` for user-level discovery. If your Codex installation already uses `~/.codex/skills`, replace the first line of the block with `SKILLS_DIR="$HOME/.codex/skills"`. Choose one location. If the destination already exists, follow the [update instructions](docs/installation.md#updates).
+
+Keep the **whole folder**, including `scripts/`, `providers/`, `registry/` and `references/`. Run plain `npm ci` inside it: the skill uses tooling listed in `devDependencies`, so do not omit those dependencies. `node_modules` stays local and is ignored by Git.
+
+For a separate development checkout, a copy without Git history or a project-local installation, see [installation options](docs/installation.md). Exact configurations exercised are recorded in the [verification report](docs/verification.md).
 
 ## Use it
 
-Tell your agent to use [SKILL.md](SKILL.md) with a short brief, for example: “Build a premium website for an independent ceramics studio.” The agent infers the visual direction, searches and selects real components before fixing the layout, prepares assets for their interactions, integrates the experience and reviews it in motion. You do not need to name components or prescribe animation parameters. The entrypoint loads detailed references only when useful.
+Open your React project in Codex, then mention the skill in your prompt:
+
+> Use $premium-frontend-skill to build a distinctive website for an independent ceramics studio, with expressive React Bits interactions and a polished mobile experience.
+
+If the skill does not appear, restart Codex. You can also ask the agent explicitly to read `SKILL.md` at the installed location. Other coding agents can use the same entrypoint when they support local instructions and shell tools; follow their own skill-discovery conventions.
+
+The agent infers the visual direction, searches and selects real components before fixing the layout, prepares assets for their interactions, integrates the experience and reviews it in motion. You do not need to name components or prescribe animation parameters. The entrypoint loads detailed references only when useful. To generate custom visuals, include that in your prompt and enable your agent's image-generation tool.
 
 Version 1.1 makes visible, intentional React Bits integration part of the default for creative websites while keeping dashboards and frequent-use workflows stable. Its editable design defaults avoid terminal periods in short headings, ornamental italics, automatic Cormorant Garamond styling and gratuitous dots or badges. Explicit briefs and established brand rules take precedence. Component counts and image quality alone do not establish the quality of the experience.
+
+For direct CLI use, run these commands from the installed skill directory:
 
 ```bash
 npm run components:search -- --query "image gallery" --limit 5 --json
@@ -27,11 +46,11 @@ npm run components:inspect -- --id react-bits:blur-text --json
 npm run components:search -- --query "settings switch" --category Micro --curated --max-risk low
 ```
 
-From another project:
+From your React project's root, point `SKILL_ROOT` at the location you installed above:
 
 ```bash
-SKILL_ROOT="/Users/hamza/Desktop/Personal/BuildingSkills/premium-frontend-skill"
-TARGET_PROJECT="$(pwd)"
+SKILL_ROOT="$HOME/.agents/skills/premium-frontend-skill"
+TARGET_PROJECT="$(pwd -P)"
 npm --prefix "$SKILL_ROOT" run components:install -- --id react-bits:blur-text --project "$TARGET_PROJECT" --dry-run
 npm --prefix "$SKILL_ROOT" run components:install -- --id react-bits:blur-text --project "$TARGET_PROJECT" --apply
 ```
@@ -52,9 +71,19 @@ npm run registry:sync -- --provider react-bits
 
 Sync resolves a single immutable commit, validates before replacing the catalogue and reports additions, changes and removals. Keep curated judgments in `registry/overrides.json`. [Sources and limitations](docs/sources.md) document the official manifests, extraction, pinned revision and licence.
 
-React Bits uses a custom **MIT + Commons Clause** text restricting redistribution of the components themselves. The installer preserves the exact pinned notice in the application. Upstream source, cache clones, generated applications and screenshots remain ignored locally. Our templates and scripts do not bundle upstream code. Nothing is published, pushed or deployed.
+React Bits uses a custom **MIT + Commons Clause** text restricting redistribution of the components themselves. The installer preserves the exact pinned notice in the application. Upstream source, cache clones, generated applications and screenshots remain ignored locally. The templates and scripts do not bundle upstream code or automatically publish or deploy applications.
 
 ## Validation and examples
+
+Contributors can run the same local checks as CI from the repository root:
+
+```bash
+npm run format:check
+npm run typecheck
+npm test
+npm run validate
+npm run skill:bundle
+```
 
 The GitHub Actions workflow in `.github/workflows/ci.yml` runs on pushes, pull requests and manual dispatch. It uses Ubuntu 24.04 and the Node version in `.nvmrc`, installs the locked dependencies with `npm ci`, then checks formatting, TypeScript, unit tests, skill/catalogue validity and archive creation. It also verifies that the checks leave tracked files unchanged. Actions are pinned to commit SHAs, repository access is read-only, and newer runs cancel older runs for the same ref.
 
