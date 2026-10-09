@@ -1,6 +1,6 @@
 {
   "name": "premium-frontend-skill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "description": "A portable React design skill with a local React Bits metadata catalogue and safe source retrieval.",

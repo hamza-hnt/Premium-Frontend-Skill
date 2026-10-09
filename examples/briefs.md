@@ -2,6 +2,17 @@
 
 These are original templates for local integration checks, not the product of the skill and not a component library. Running `examples:create` copies our templates, then retrieves the selected upstream source into ignored directories. Preserve each application's `.premium-frontend` manifest and licence files.
 
+## Short-brief decision checks
+
+Use fresh, independent runs of the skill to check its design decisions. The existing fixture pages below test integrations; they do not certify the current art-direction workflow. Planning checks do not replace building and observing the resulting site.
+
+- “Build a premium website for an independent ceramics studio.” Expect a specific direction and real component candidates that shape browsing or product discovery, plus asset separation for interactive objects. The user should not need to prescribe fonts or effects.
+- “Build an expressive website for an experimental music festival.” Expect a different composition and interaction character from the studio, rather than the same font palette and component trio with replaced labels.
+- “Improve a busy inventory dashboard.” Expect stable reading and operations, with components chosen for useful controls or feedback. A creative landing-page treatment is not an appropriate default.
+- “Follow our supplied Cormorant Garamond and italic brand system; keep this page static.” Expect the explicit brand and motion requirements to override the generic defaults without forced component installation.
+
+For each run, inspect the actual shortlist, design reasoning and reported omissions. For an implemented result, verify imports, rendered use and triggered behavior; assess it with the design rubric. Record the scope honestly: a plausible plan does not establish visual or runtime quality.
+
 ## Marketing: Fieldwork
 
 Brief: make a credible landing page for an independent studio workspace. The audience values craft, calm and useful structure. Use warm ivory, forest green, a muted ochre accent, editorial serif headlines and simple sans-serif body copy. Avoid generic neon or glass cards. Communicate the offering, show a believable studio schedule, and provide working navigation into the sample workspace.

@@ -1,6 +1,6 @@
 # Premium frontend skill
 
-A reusable, English-language coding-agent skill for composing polished React interfaces and selecting restrained React Bits enhancements. It includes a real metadata catalogue, deterministic search, deep inspection, and a source installer with pinned revisions, integrity checks and collision protection. The agent makes design decisions; local TypeScript scripts perform deterministic operations.
+A reusable, English-language coding-agent skill that turns short briefs into distinctive React interfaces with purposeful React Bits interactions. It includes a real metadata catalogue, deterministic search, deep inspection, and a source installer with pinned revisions, integrity checks and collision protection. The agent makes design decisions; local TypeScript scripts perform deterministic operations.
 
 **V1 scope:** React Bits only. No backend, hosted registry, database, vector service, extra model credentials or paid APIs. Aceternity and a visual catalogue are future work. Demo pages are integration fixtures, not the main deliverable.
 
@@ -17,10 +17,12 @@ Use Node **22.12+ below 27**, npm and Git. `.nvmrc` selects 22.14.0; see [the ve
 
 ## Use it
 
-Tell your agent to use [SKILL.md](SKILL.md) to inspect your app, establish a design direction, build a functional layout, shortlist enhancements, integrate them and revise the rendered result. The entrypoint loads detailed references only when useful.
+Tell your agent to use [SKILL.md](SKILL.md) with a short brief, for example: “Build a premium website for an independent ceramics studio.” The agent infers the visual direction, searches and selects real components before fixing the layout, prepares assets for their interactions, integrates the experience and reviews it in motion. You do not need to name components or prescribe animation parameters. The entrypoint loads detailed references only when useful.
+
+Version 1.1 makes visible, intentional React Bits integration part of the default for creative websites while keeping dashboards and frequent-use workflows stable. Its editable design defaults avoid terminal periods in short headings, ornamental italics, automatic Cormorant Garamond styling and gratuitous dots or badges. Explicit briefs and established brand rules take precedence. Component counts and image quality alone do not establish the quality of the experience.
 
 ```bash
-npm run components:search -- --query "subtle text reveal" --limit 5 --json
+npm run components:search -- --query "image gallery" --limit 5 --json
 npm run components:inspect -- --id react-bits:blur-text --json
 npm run components:search -- --query "settings switch" --category Micro --curated --max-risk low
 ```
