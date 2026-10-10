@@ -36,12 +36,15 @@ If the skill does not appear, restart Codex. You can also ask the agent explicit
 
 The agent infers the visual direction, searches and selects real components before fixing the layout, prepares assets for their interactions, integrates the experience and reviews it in motion. You do not need to name components or prescribe animation parameters. The entrypoint loads detailed references only when useful. To generate custom visuals, include that in your prompt and enable your agent's image-generation tool.
 
-Version 1.1 makes visible, intentional React Bits integration part of the default for creative websites while keeping dashboards and frequent-use workflows stable. Its editable design defaults avoid terminal periods in short headings, ornamental italics, automatic Cormorant Garamond styling and gratuitous dots or badges. Explicit briefs and established brand rules take precedence. Component counts and image quality alone do not establish the quality of the experience.
+Version 1.2 adds explicit first-screen composition, visual comparison of component candidates, asset briefs tied to layout, and review of both motion and the settled page. It distinguishes composition-changing interactions from local refinements and task feedback, while keeping dashboards and frequent-use workflows stable. There is no fixed hero layout, visual style or component quota. Its editable defaults avoid terminal periods in short headings, ornamental italics, automatic Cormorant Garamond styling and gratuitous dots or badges. Explicit briefs and established brand rules take precedence.
 
 For direct CLI use, run these commands from the installed skill directory:
 
 ```bash
 npm run components:search -- --query "image gallery" --limit 5 --json
+npm run components:search -- --query "hero" --limit 8 --json
+npm run components:search -- --query "editorial scroll" --limit 8 --json
+npm run components:search -- --query "depth" --role gallery --json
 npm run components:inspect -- --id react-bits:blur-text --json
 npm run components:search -- --query "settings switch" --category Micro --curated --max-risk low
 ```
@@ -61,7 +64,9 @@ Search, inspect and dry runs work offline after tooling setup. Initial sync and 
 
 ## Catalogue and provenance
 
-The initial snapshot indexes **215 logical components / 860 implementation variants**, with **20 curated components** across five categories. All entries in the supported official free registry are covered. Metadata and design annotations are separate; annotations survive sync. Browser verification is tied to source fingerprints and invalidates on change.
+The snapshot indexes **215 logical components / 860 implementation variants** across all five upstream categories. Every component also has an editorial discovery entry describing its roles, behavior and search vocabulary. **20 components** have additional, detailed curated notes; that subset does not limit search or imply the remaining components are unsuitable. Discovery descriptions are selection aids, not runtime verification or a guarantee of visual quality.
+
+`registry/discovery.json` keeps complete search guidance separate from pinned upstream metadata and the detailed annotations in `registry/overrides.json`. Exact name/ID matches remain prominent; broad role searches expose different categories instead of favoring the best-annotated small effects. Validation checks that the discovery index covers the catalogue without missing or stale IDs. Browser verification remains tied to source fingerprints and invalidates on change.
 
 `registry/components.json` is this skill's **local metadata catalogue**, not a target application's shadcn configuration or an upstream distribution registry. It contains no component implementation. Static source scans and estimated performance risk are labelled; unknown compatibility stays unknown.
 
@@ -69,7 +74,7 @@ The initial snapshot indexes **215 logical components / 860 implementation varia
 npm run registry:sync -- --provider react-bits
 ```
 
-Sync resolves a single immutable commit, validates before replacing the catalogue and reports additions, changes and removals. Keep curated judgments in `registry/overrides.json`. [Sources and limitations](docs/sources.md) document the official manifests, extraction, pinned revision and licence.
+Sync resolves a single immutable commit, validates before replacing the catalogue and reports additions, changes and removals. A missing or stale discovery ID stops sync before replacement so maintainers can review the index; source changes also warrant reviewing the affected behavior summaries. Keep detailed curated judgments in `registry/overrides.json`. [Sources and limitations](docs/sources.md) document the official manifests, extraction, pinned revision and licence.
 
 React Bits uses a custom **MIT + Commons Clause** text restricting redistribution of the components themselves. The installer preserves the exact pinned notice in the application. Upstream source, cache clones, generated applications and screenshots remain ignored locally. The templates and scripts do not bundle upstream code or automatically publish or deploy applications.
 
@@ -110,7 +115,7 @@ The browser runner checks 390, 768 and 1440 px in normal and reduced-motion mode
 
 - `SKILL.md`, `references/`: portable agent workflow and visual review guidance.
 - `providers/`: small provider contract, React Bits discovery and retrieval adapter.
-- `registry/`: schema, generated metadata snapshot, independently curated annotations.
+- `registry/`: schema, generated metadata snapshot, complete discovery index and independently curated annotations.
 - `scripts/`: sync, search, inspect, safe install, validation, local bundling and live checks.
 - `tests/`: deterministic synthetic fixtures and behavior/safety checks.
 - `examples/`: our source-free fixture templates, briefs and browser runner.

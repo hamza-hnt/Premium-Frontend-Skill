@@ -23,6 +23,7 @@ await cli(async () => {
         },
         resolve(ROOT, "registry/components.json"),
         await readJson(resolve(ROOT, "registry/overrides.json")),
+        await readJson(resolve(ROOT, "registry/discovery.json")),
       ),
     ),
   );

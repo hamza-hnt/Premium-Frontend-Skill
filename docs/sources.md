@@ -16,7 +16,7 @@ Checked on **2026-10-10**. This document describes the source snapshot, not a cl
 
 ## Discovery and grouping
 
-`public/r/registry.json` contains **860 items**. Each item names one of four variants. They group into **215 logical components** across `Animations`, `TextAnimations`, `Components`, `Backgrounds` and `Micro`. All 860 items in this manifest are indexed; none are silently discarded. **20 logical components** have separately maintained curated notes. Other entries are explicitly unreviewed for design selection.
+`public/r/registry.json` contains **860 items**. Each item names one of four variants. They group into **215 logical components** across `Animations`, `TextAnimations`, `Components`, `Backgrounds` and `Micro`. All 860 items in this manifest are indexed; none are silently discarded. **All 215 components** have separately maintained editorial discovery roles, terms and behavior summaries in `registry/discovery.json`. **20 logical components** additionally have detailed curated notes in `registry/overrides.json`. Discovery metadata interprets upstream descriptions for selection; it does not confer curated status or runtime evidence.
 
 The adapter reads the structured index, each `public/r/Name-VARIANT.json` payload, literal fields from `src/constants/Information.js`, the repository tree and `LICENSE.md`. It uses the TypeScript 5.9.3 parser to inspect object literals and imports. It never imports/evaluates upstream JavaScript or executes upstream build scripts. The TypeScript version is pinned because TypeScript 7 changed the public compiler API surface used here.
 
@@ -31,6 +31,19 @@ Verified variant roots:
 
 The adapter matches payload file bytes to repository Git blob hashes within the correct variant folder. All initial file mappings resolved. Catalogue files store paths, sizes and SHA-256 hashes, never source text. A variant payload may contain multiple files, including styles. Registry file `target` hints are not trusted as destination paths; the installer keeps local imports together in one component directory. The current registry has no registry-to-registry dependencies. Future unsupported dependencies fail safely rather than generating a partial installation.
 
+## Editorial discovery checks
+
+The discovery index preserves the raw upstream descriptions in the catalogue while providing separately labelled behavior summaries. Some manifest descriptions were imprecise. Targeted inspection of pinned TS-CSS source informed these corrections; this is source reading, not rendered verification:
+
+- [FlowingMenu](https://github.com/DavidHDev/react-bits/blob/d86fccbd477786f94ca7eb891fbe0ec039d3cd3b/src/ts-default/Components/FlowingMenu/FlowingMenu.tsx): reveals a repeating image/text marquee on hover.
+- [GradualBlur](https://github.com/DavidHDev/react-bits/blob/d86fccbd477786f94ca7eb891fbe0ec039d3cd3b/src/ts-default/Animations/GradualBlur/GradualBlur.tsx): overlays progressively blurred edges, with optional visibility/hover animation.
+- [FadeContent](https://github.com/DavidHDev/react-bits/blob/d86fccbd477786f94ca7eb891fbe0ec039d3cd3b/src/ts-default/Animations/FadeContent/FadeContent.tsx): animates opacity and optional blur, rather than directional sliding.
+- [FallingText](https://github.com/DavidHDev/react-bits/blob/d86fccbd477786f94ca7eb891fbe0ec039d3cd3b/src/ts-default/TextAnimations/FallingText/FallingText.tsx): applies physics to whole words.
+- [CircularGallery](https://github.com/DavidHDev/react-bits/blob/d86fccbd477786f94ca7eb891fbe0ec039d3cd3b/src/ts-default/Components/CircularGallery/CircularGallery.tsx): presents a looping track with curvature.
+- [AnimatedList](https://github.com/DavidHDev/react-bits/blob/d86fccbd477786f94ca7eb891fbe0ec039d3cd3b/src/ts-default/Components/AnimatedList/AnimatedList.tsx): supports item selection and scale/opacity entrances.
+
+Roles and usage terms remain editorial suggestions. Check the selected variant and its adapted behavior before relying on a summary or claiming compatibility.
+
 ## Provenance and licence
 
 The actual [licence at the pinned revision](https://github.com/DavidHDev/react-bits/blob/d86fccbd477786f94ca7eb891fbe0ec039d3cd3b/LICENSE.md) is labelled **MIT + Commons Clause License Condition v1.0**, with copyright attributed to David Haz, 2026. It permits inclusion in applications, websites or products subject to its conditions and restricts selling, sublicensing or redistributing the components themselves. This is not represented here as unmodified MIT. Read the linked text for the complete terms.
@@ -43,7 +56,7 @@ This skill distributes discovery metadata, our annotations, our scripts, and our
 
 A sync resolves one immutable commit before reading any metadata. New clones use a shallow sparse cache; existing cache checkouts are not used as mutable source authority. Git object reads use the resolved revision. The initial inspection clone is ignored and is not a manually maintained fork.
 
-For the same revision, annotations, previous evidence and checked date, sync produces identical bytes. It validates before atomic replacement, reports added/changed/removed logical IDs and preserves the previous catalogue on failure. Orphan annotations block sync for review. Source fingerprints include all variant payload hashes and the licence hash. Changed source invalidates prior browser evidence. Advancing to a new commit without a source change does not by itself claim a component changed.
+For the same revision, annotations, previous evidence and checked date, sync produces identical catalogue bytes. It validates before atomic replacement, reports added/changed/removed logical IDs and preserves the previous catalogue on failure. Orphan annotations and missing or stale discovery IDs block sync for review. Discovery entries remain separate from source metadata; review their behavior summaries after relevant upstream changes. Source fingerprints include all variant payload hashes and the licence hash. Changed source invalidates prior browser evidence. Advancing to a new commit without a source change does not by itself claim a component changed.
 
 Search and inspection read the committed metadata snapshot offline after npm tooling setup. Dry-run installation also works offline. Sync needs Git and normally network; `--offline` uses cached Git objects. Applying uncached source needs HTTPS access to `raw.githubusercontent.com` or the pinned object in the local clone. Downloads reject redirects, unexpected source locations, oversized responses and hash mismatches. Cached bytes are revalidated. Offline object reads use Git’s `--no-lazy-fetch` option, so missing blobs fail instead of silently fetching. A fully cached snapshot is required for offline sync. [Git documents this option](https://git-scm.com/docs/git#Documentation/git.txt---no-lazy-fetch).
 

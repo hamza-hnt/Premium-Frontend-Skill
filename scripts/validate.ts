@@ -2,8 +2,10 @@ import { resolve } from "node:path";
 import { readFile } from "node:fs/promises";
 import { overridesSchema } from "../registry/schema.js";
 import { cli, json, readCatalogue, readJson, ROOT } from "./lib/core.js";
+import { readDiscovery } from "./lib/discovery.js";
 await cli(async () => {
   const c = await readCatalogue();
+  const discovery = await readDiscovery(c);
   const annotations = overridesSchema.parse(
     await readJson(resolve(ROOT, "registry/overrides.json")),
   );
@@ -24,6 +26,7 @@ await cli(async () => {
       components: c.components.length,
       variants: c.coverage.indexedVariants,
       curated: Object.keys(annotations).length,
+      discovery: Object.keys(discovery.components).length,
       revision: c.revision,
     }),
   );

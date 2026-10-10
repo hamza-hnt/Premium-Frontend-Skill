@@ -91,6 +91,8 @@ Run these from the React project's root. Adjust `SKILL_ROOT` if you chose a diff
 SKILL_ROOT="$HOME/.agents/skills/premium-frontend-skill"
 TARGET_PROJECT="$(pwd -P)"
 npm --prefix "$SKILL_ROOT" run components:search -- --query "subtle text reveal" --limit 5 --json
+npm --prefix "$SKILL_ROOT" run components:search -- --query "hero" --limit 8 --json
+npm --prefix "$SKILL_ROOT" run components:search -- --query "depth" --role gallery --json
 npm --prefix "$SKILL_ROOT" run components:search -- --query "settings switch" --category Micro --curated --max-risk low --json
 npm --prefix "$SKILL_ROOT" run components:inspect -- --id react-bits:blur-text --json
 npm --prefix "$SKILL_ROOT" run components:install -- --id react-bits:blur-text --project "$TARGET_PROJECT" --dry-run
@@ -98,6 +100,8 @@ npm --prefix "$SKILL_ROOT" run components:install -- --id react-bits:blur-text -
 ```
 
 `--variant TS-TW` chooses an explicit variant. The default follows detected TypeScript and Tailwind declarations. `--dir src/ui/react-bits` selects a project-relative component destination. `--offline` permits only cached source on apply. The install command prints JSON for both readable inspection and machine use; search and inspect support text or `--json`. For pure JSON stdout use npm's `--silent` option if your npm version prints script banners to stdout. Errors are JSON on stderr with a nonzero exit. Dry-run conflicts exit with code 2; invalid commands and apply failures exit with code 1.
+
+Search and inspect include editorial discovery guidance for every component, separately labelled from upstream descriptions and runtime evidence. `--role` filters possible uses: `hero`, `background`, `typography`, `gallery`, `navigation`, `storytelling`, `feedback`, `input` or `decoration`. `--category` still filters the upstream taxonomy. Broad role queries diversify similarly relevant results across categories; exact component names and IDs stay prominent. Refine by behavior after exploring a broad role. Search ranking is not a visual quality score.
 
 The plan includes a dependency command represented as an argv array. Execute it in the target project using its package manager after review. The installer does not modify dependencies or config. This avoids half-rolled-back package manager operations and respects npm, pnpm, Yarn and Bun independently of this skill's npm setup. Target manager detection is tested with controlled fixtures; only npm live integration is claimed.
 
@@ -118,6 +122,8 @@ npm run registry:sync -- --provider react-bits --revision d86fccbd477786f94ca7eb
 ```
 
 Review sync changes before adopting the new snapshot. It updates only the skill metadata; installed source stays on its recorded revision. Curated judgments live in `registry/overrides.json`. If source changed, browser evidence becomes stale. The `--checked-date` is an explicit input for reproducible metadata; ordinary sync uses the current UTC date. Installed repositories do not need a manually maintained fork.
+
+Sync also validates the independently maintained `registry/discovery.json` index against the incoming catalogue before replacement. If upstream adds or removes components, the error lists missing or stale IDs. Inspect their official metadata, add or remove the corresponding discovery entries, then rerun sync and `npm run validate`. Review affected summaries when behavior changes; never copy performance or compatibility assumptions into discovery labels. Search and inspect require complete coverage of the committed snapshot.
 
 ## Official CLI fallback
 

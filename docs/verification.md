@@ -1,6 +1,18 @@
-# V1 verification report
+# Verification report
 
 Verified on **October 10, 2026 (Europe/Paris)**. The catalogue uses upstream commit `d86fccbd477786f94ca7eb891fbe0ec039d3cd3b`. This report distinguishes controlled tooling tests from actual upstream retrieval and rendered application checks.
+
+## Version 1.2: discovery and design guidance
+
+The upstream HEAD still matched the pinned revision during this update. The official pinned registry manifest was compared with the catalogue: **860 of 860 variant names matched, with no missing or extra entries**. All **215 logical components** have validated discovery roles, search terms and behavior summaries. Source metadata and the 20 detailed curated annotations retain their existing provenance and evidence status.
+
+On Node **22.14.0**, **42 controlled tests passed, zero failed**, along with TypeScript, formatting, catalogue/discovery validation and the skill frontmatter validator. Ten new tests exercise index coverage drift, source-filter preservation, exact-name retrieval, multiword relevance, broad-query variety, absence of curated ranking inflation, offline CLI output and synchronization failure before replacement. An independent review additionally checked each component's name, lowercase name, full ID and slug: **860 exact-query probes ranked the intended component first**.
+
+The external-consumer check passed again using a freshly extracted archive and `npm ci`: search, inspection, source retrieval over pinned HTTPS, installation, an offline repeat no-op and a consumer TypeScript build. The archive includes the new discovery index and validation code. This checks portable tooling; host automatic skill discovery was not exercised.
+
+A separate read-only decision evaluation applied the revised instructions to two short briefs. An architecture exhibition produced a spatial six-project exploration concept with compared gallery alternatives; a warehouse dashboard retained a stable table and considered local action feedback. The plans differed in composition, asset needs and motion intensity. **No new application was rendered for that evaluation**, so these plans do not establish aesthetic quality, accessibility or performance. The browser results below belong to the original integration fixtures and are not a visual certification of version 1.2's design guidance.
+
+The remaining sections record the original V1 integration baseline.
 
 ## Delivered and covered
 

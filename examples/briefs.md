@@ -11,7 +11,9 @@ Use fresh, independent runs of the skill to check its design decisions. The exis
 - “Improve a busy inventory dashboard.” Expect stable reading and operations, with components chosen for useful controls or feedback. A creative landing-page treatment is not an appropriate default.
 - “Follow our supplied Cormorant Garamond and italic brand system; keep this page static.” Expect the explicit brand and motion requirements to override the generic defaults without forced component installation.
 
-For each run, inspect the actual shortlist, design reasoning and reported omissions. For an implemented result, verify imports, rendered use and triggered behavior; assess it with the design rubric. Record the scope honestly: a plausible plan does not establish visual or runtime quality.
+For each run, inspect the actual shortlist, design reasoning and reported omissions. Include different composition families, rather than relabelling the same layout. Check whether the proposed main interaction changes composition or exploration, provides local refinement, or supports a task. Operational and explicitly static briefs need not produce a spectacular scene.
+
+For implemented evaluations, use isolated generated projects rather than modifying another user's test site. Capture the first screen at wide and narrow widths, exercise the main interaction and inspect its intermediate and settled states. Record observations about subject scale, typography, image/text relationships, section rhythm and the visitor's action. When a prior version exists, capture the same views and compare what improved or regressed; additional components alone are not an improvement. Verify actual imports and triggered behavior alongside the design rubric. Retain the brief, selected candidates, asset rationale, observations and revisions with the evaluation evidence. Record the scope honestly: a plausible plan, screenshot capture or passing build does not establish visual or runtime quality.
 
 ## Marketing: Fieldwork
 

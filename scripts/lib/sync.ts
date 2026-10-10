@@ -6,6 +6,7 @@ import {
 } from "../../registry/schema.js";
 import type { Provider, DiscoverOptions } from "../../providers/types.js";
 import { atomicJson, json, readJson } from "./core.js";
+import { validateDiscovery } from "./discovery.js";
 
 export function mergeAnnotations(
   next: Catalogue,
@@ -67,6 +68,7 @@ export async function synchronize(
   options: DiscoverOptions,
   output: string,
   overrides: unknown,
+  discovery?: unknown,
 ) {
   let previous: Catalogue | undefined;
   try {
@@ -81,6 +83,7 @@ export async function synchronize(
     previous,
   );
   const changes = diff(previous, next);
+  if (discovery !== undefined) validateDiscovery(next, discovery);
   await atomicJson(output, next);
   return {
     revision: next.revision,

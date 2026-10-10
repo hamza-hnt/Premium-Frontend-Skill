@@ -15,6 +15,39 @@ export const safePath = z
     "Unsafe relative path",
   );
 export const variantName = z.enum(["JS-CSS", "JS-TW", "TS-CSS", "TS-TW"]);
+export const discoveryRole = z.enum([
+  "hero",
+  "background",
+  "typography",
+  "gallery",
+  "navigation",
+  "storytelling",
+  "feedback",
+  "input",
+  "decoration",
+]);
+export const discoveryDescriptorSchema = z
+  .object({
+    roles: z.array(discoveryRole).min(1),
+    terms: z.array(z.string().trim().min(1)).min(1),
+    summary: z.string().trim().min(1),
+  })
+  .strict()
+  .superRefine((descriptor, ctx) => {
+    for (const key of ["roles", "terms"] as const)
+      if (new Set(descriptor[key]).size !== descriptor[key].length)
+        ctx.addIssue({ code: "custom", message: `Duplicate discovery ${key}` });
+  });
+export const discoverySchema = z
+  .object({
+    schemaVersion: z.literal(1),
+    provider: z.string().min(1),
+    components: z.record(
+      z.string().regex(/^[a-z0-9][a-z0-9-]*:[a-z0-9][a-z0-9-]*$/),
+      discoveryDescriptorSchema,
+    ),
+  })
+  .strict();
 export const annotationSchema = z
   .object({
     tags: z.array(z.string()),
@@ -153,3 +186,6 @@ export type Catalogue = z.infer<typeof catalogueSchema>;
 export type Component = z.infer<typeof componentSchema>;
 export type Variant = z.infer<typeof variantSchema>;
 export type Annotation = z.infer<typeof annotationSchema>;
+export type Discovery = z.infer<typeof discoverySchema>;
+export type DiscoveryDescriptor = z.infer<typeof discoveryDescriptorSchema>;
+export type DiscoveryRole = z.infer<typeof discoveryRole>;

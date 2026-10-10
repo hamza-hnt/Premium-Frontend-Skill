@@ -1,0 +1,2293 @@
+{
+  "schemaVersion": 1,
+  "provider": "react-bits",
+  "components": {
+    "react-bits:accordion-gallery": {
+      "roles": ["gallery", "storytelling"],
+      "terms": [
+        "editorial",
+        "photography",
+        "portfolio",
+        "expanding panels",
+        "hover",
+        "focus",
+        "parallax",
+        "captions"
+      ],
+      "summary": "Image panels expand on hover or focus to reveal imagery and captions with parallax."
+    },
+    "react-bits:animated-list": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "list",
+        "selection",
+        "scroll",
+        "items",
+        "scale",
+        "reveal",
+        "keyboard"
+      ],
+      "summary": "Selectable list items scale and fade into view, with pointer selection and optional keyboard navigation."
+    },
+    "react-bits:border-glow": {
+      "roles": ["decoration"],
+      "terms": [
+        "border",
+        "mesh gradient",
+        "pointer",
+        "edge",
+        "light",
+        "surface",
+        "highlight"
+      ],
+      "summary": "A mesh-gradient border follows cursor direction and brightens near the edges."
+    },
+    "react-bits:bounce-cards": {
+      "roles": ["gallery"],
+      "terms": [
+        "photography",
+        "fan",
+        "stack",
+        "hover",
+        "bounce",
+        "portfolio",
+        "images"
+      ],
+      "summary": "Photo cards bounce into a fan, then spread to straighten the hovered card."
+    },
+    "react-bits:bubble-menu": {
+      "roles": ["navigation"],
+      "terms": ["menu", "circular", "expand", "links", "stagger", "playful"],
+      "summary": "A floating circular menu expands to reveal staggered items."
+    },
+    "react-bits:card-nav": {
+      "roles": ["navigation"],
+      "terms": [
+        "menu",
+        "expand",
+        "panels",
+        "nested links",
+        "sections",
+        "site navigation",
+        "documentation"
+      ],
+      "summary": "An expanding navigation bar reveals nested links inside card panels."
+    },
+    "react-bits:card-swap": {
+      "roles": ["gallery", "storytelling"],
+      "terms": [
+        "cards",
+        "sequence",
+        "showcase",
+        "position",
+        "swap",
+        "features"
+      ],
+      "summary": "Cards exchange positions through animated layout transitions."
+    },
+    "react-bits:carousel": {
+      "roles": ["gallery", "storytelling"],
+      "terms": [
+        "tour",
+        "features",
+        "stories",
+        "images",
+        "swipe",
+        "transition",
+        "autoplay",
+        "commerce",
+        "product"
+      ],
+      "summary": "Swipeable cards present tours or galleries with selectable transitions and an autoplay timer."
+    },
+    "react-bits:chroma-grid": {
+      "roles": ["gallery"],
+      "terms": [
+        "editorial",
+        "portfolio",
+        "photography",
+        "grayscale",
+        "color reveal",
+        "hover",
+        "tiles"
+      ],
+      "summary": "Grayscale image tiles reveal their color when the grid is hovered."
+    },
+    "react-bits:circular-carousel": {
+      "roles": ["hero", "gallery"],
+      "terms": [
+        "immersive",
+        "spatial",
+        "3d",
+        "ring",
+        "photography",
+        "portfolio",
+        "momentum",
+        "drag",
+        "snap",
+        "focus",
+        "exhibition"
+      ],
+      "summary": "Images form a three-dimensional ring with momentum dragging, snapping and click-to-focus behavior."
+    },
+    "react-bits:circular-gallery": {
+      "roles": ["gallery"],
+      "terms": [
+        "immersive",
+        "photography",
+        "portfolio",
+        "curved",
+        "scroll",
+        "drag",
+        "keyboard",
+        "snap",
+        "exhibition"
+      ],
+      "summary": "Images scroll along a curved, looping track with drag interaction and snapping."
+    },
+    "react-bits:counter": {
+      "roles": ["feedback"],
+      "terms": [
+        "dashboard",
+        "number",
+        "metric",
+        "quantity",
+        "increment",
+        "easing"
+      ],
+      "summary": "A numeric counter animates changes with configurable easing."
+    },
+    "react-bits:curved-input": {
+      "roles": ["input"],
+      "terms": ["text", "composer", "arc", "experimental", "caret", "submit"],
+      "summary": "An input bends its text, caret and submit button along an arc."
+    },
+    "react-bits:decay-card": {
+      "roles": ["gallery", "decoration"],
+      "terms": [
+        "editorial",
+        "image",
+        "material",
+        "distortion",
+        "tear",
+        "melt",
+        "pointer",
+        "experimental"
+      ],
+      "summary": "An image tears and melts with pointer movement before pulling itself together."
+    },
+    "react-bits:depth-carousel": {
+      "roles": ["gallery", "storytelling"],
+      "terms": [
+        "immersive",
+        "spatial",
+        "3d",
+        "rail",
+        "depth",
+        "drag",
+        "keyboard",
+        "sequence",
+        "commerce",
+        "product"
+      ],
+      "summary": "Cards recede along a three-dimensional rail with dragging, keyboard control and auto-advance."
+    },
+    "react-bits:dock": {
+      "roles": ["navigation"],
+      "terms": [
+        "application",
+        "launcher",
+        "toolbar",
+        "icons",
+        "magnification",
+        "badges",
+        "context menu"
+      ],
+      "summary": "An application-style dock magnifies icons and supports launch bounces, badges and context menus."
+    },
+    "react-bits:dome-gallery": {
+      "roles": ["hero", "gallery"],
+      "terms": [
+        "immersive",
+        "spatial",
+        "3d",
+        "photography",
+        "portfolio",
+        "exhibition",
+        "hemisphere"
+      ],
+      "summary": "Images are projected across an immersive three-dimensional dome."
+    },
+    "react-bits:drift-wall": {
+      "roles": ["hero", "gallery"],
+      "terms": [
+        "immersive",
+        "editorial",
+        "photography",
+        "portfolio",
+        "tiles",
+        "perspective",
+        "endless",
+        "hover",
+        "exhibition"
+      ],
+      "summary": "An endless wall of tiles drifts through perspective and lifts tiles on hover."
+    },
+    "react-bits:elastic-slider": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "range",
+        "value",
+        "control",
+        "settings",
+        "handle",
+        "spring",
+        "tactile",
+        "dashboard"
+      ],
+      "summary": "A slider handle stretches during interaction and springs back."
+    },
+    "react-bits:flex-carousel": {
+      "roles": ["gallery"],
+      "terms": [
+        "editorial",
+        "photography",
+        "portfolio",
+        "infinite",
+        "image row",
+        "liquid glass",
+        "bend",
+        "focus"
+      ],
+      "summary": "An infinite image row bends through liquid-glass edges with entrances and click-to-focus behavior."
+    },
+    "react-bits:flowing-menu": {
+      "roles": ["navigation"],
+      "terms": [
+        "editorial",
+        "menu",
+        "links",
+        "marquee",
+        "images",
+        "text",
+        "hover",
+        "reveal"
+      ],
+      "summary": "Hovering a menu link reveals a flowing, repeating marquee of text and images."
+    },
+    "react-bits:fluid-glass": {
+      "roles": ["decoration"],
+      "terms": [
+        "material",
+        "glass",
+        "refraction",
+        "liquid",
+        "distortion",
+        "container"
+      ],
+      "summary": "A glass container refracts its surroundings with animated liquid distortion."
+    },
+    "react-bits:flying-posters": {
+      "roles": ["hero", "gallery", "storytelling"],
+      "terms": [
+        "immersive",
+        "editorial",
+        "poster",
+        "exhibition",
+        "3d",
+        "scroll",
+        "drag",
+        "endless",
+        "twist"
+      ],
+      "summary": "Posters twist and flip while scrolling or dragging through an endless three-dimensional column."
+    },
+    "react-bits:folder": {
+      "roles": ["navigation"],
+      "terms": [
+        "files",
+        "organize",
+        "nested content",
+        "folder",
+        "open",
+        "reveal"
+      ],
+      "summary": "An interactive folder opens to reveal nested content."
+    },
+    "react-bits:glass-icons": {
+      "roles": ["navigation", "decoration"],
+      "terms": [
+        "application",
+        "icons",
+        "social links",
+        "dock",
+        "glass",
+        "refraction"
+      ],
+      "summary": "Glass icons bend the color behind them in app grids, docks or link collections."
+    },
+    "react-bits:glass-surface": {
+      "roles": ["decoration"],
+      "terms": [
+        "material",
+        "glass",
+        "surface",
+        "refraction",
+        "distortion",
+        "lighting"
+      ],
+      "summary": "A glass surface combines live distortion with lighting."
+    },
+    "react-bits:gooey-nav": {
+      "roles": ["navigation"],
+      "terms": ["menu", "active state", "indicator", "blob", "morph", "liquid"],
+      "summary": "A navigation indicator morphs between items with a gooey transition."
+    },
+    "react-bits:holo-card": {
+      "roles": ["gallery", "decoration"],
+      "terms": [
+        "collectible",
+        "product",
+        "foil",
+        "holographic",
+        "tilt",
+        "glitter",
+        "material",
+        "commerce"
+      ],
+      "summary": "A tilting trading card shows holographic foil patterns and a sparkling border."
+    },
+    "react-bits:infinite-menu": {
+      "roles": ["hero", "gallery", "navigation"],
+      "terms": [
+        "immersive",
+        "spatial",
+        "3d",
+        "portfolio",
+        "collection",
+        "sphere",
+        "drag",
+        "snap",
+        "image links",
+        "exhibition"
+      ],
+      "summary": "A draggable sphere of images snaps a tile to the front and shows its title, description and link."
+    },
+    "react-bits:infinite-spiral": {
+      "roles": ["hero", "gallery"],
+      "terms": [
+        "immersive",
+        "spatial",
+        "3d",
+        "photography",
+        "helix",
+        "endless",
+        "depth",
+        "collection",
+        "exhibition"
+      ],
+      "summary": "Images loop along a three-dimensional helix with configurable spacing, depth and interaction."
+    },
+    "react-bits:lanyard": {
+      "roles": ["hero", "decoration"],
+      "terms": [
+        "identity",
+        "badge",
+        "object",
+        "3d",
+        "physics",
+        "drag",
+        "stretch",
+        "flip",
+        "material"
+      ],
+      "summary": "A customizable badge swings from a woven band and can be dragged, stretched, thrown or flipped."
+    },
+    "react-bits:line-sidebar": {
+      "roles": ["navigation"],
+      "terms": [
+        "sidebar",
+        "list",
+        "application",
+        "sections",
+        "pointer",
+        "proximity",
+        "highlight",
+        "dashboard",
+        "documentation"
+      ],
+      "summary": "Nearby list-navigation items shift and highlight as the cursor approaches."
+    },
+    "react-bits:magic-bento": {
+      "roles": ["gallery", "storytelling"],
+      "terms": [
+        "features",
+        "tiles",
+        "bento",
+        "grid",
+        "expand",
+        "interactive",
+        "showcase"
+      ],
+      "summary": "Bento-grid tiles expand and animate with interactive effects."
+    },
+    "react-bits:masonry": {
+      "roles": ["gallery"],
+      "terms": [
+        "editorial",
+        "photography",
+        "portfolio",
+        "collection",
+        "responsive",
+        "grid",
+        "reflow"
+      ],
+      "summary": "A masonry layout arranges images with animated reflow and optimized gaps."
+    },
+    "react-bits:model-viewer": {
+      "roles": ["hero", "gallery"],
+      "terms": [
+        "product",
+        "object",
+        "3d",
+        "model",
+        "orbit",
+        "lighting",
+        "inspection",
+        "showcase",
+        "commerce"
+      ],
+      "summary": "A Three.js model viewer presents a model with orbit controls and lighting presets."
+    },
+    "react-bits:morph-slider": {
+      "roles": ["hero", "gallery", "storytelling"],
+      "terms": [
+        "editorial",
+        "immersive",
+        "photography",
+        "slideshow",
+        "image transition",
+        "displacement",
+        "melt",
+        "commerce",
+        "product"
+      ],
+      "summary": "A WebGL image slider melts between images using displacement."
+    },
+    "react-bits:option-wheel": {
+      "roles": ["input"],
+      "terms": [
+        "picker",
+        "selection",
+        "options",
+        "scroll",
+        "drag",
+        "keyboard",
+        "wheel",
+        "curved"
+      ],
+      "summary": "A curved option picker spins by scroll, drag or arrow keys while unselected items tilt and fade."
+    },
+    "react-bits:pill-nav": {
+      "roles": ["navigation"],
+      "terms": [
+        "menu",
+        "active state",
+        "indicator",
+        "pill",
+        "links",
+        "minimal"
+      ],
+      "summary": "A pill-shaped navigation bar moves a highlight between active items."
+    },
+    "react-bits:pixel-card": {
+      "roles": ["gallery", "decoration"],
+      "terms": ["card", "reveal", "pixel", "retro", "digital", "content"],
+      "summary": "Card content appears through an expanding pixel transition."
+    },
+    "react-bits:profile-card": {
+      "roles": ["gallery", "decoration"],
+      "terms": [
+        "identity",
+        "profile",
+        "portrait",
+        "3d",
+        "hover",
+        "glare",
+        "tilt"
+      ],
+      "summary": "A profile card combines three-dimensional hover movement with animated glare."
+    },
+    "react-bits:reflective-card": {
+      "roles": ["gallery", "decoration"],
+      "terms": [
+        "camera",
+        "webcam",
+        "reflection",
+        "glare",
+        "material",
+        "pointer"
+      ],
+      "summary": "A card uses webcam reflection and cursor-responsive glare."
+    },
+    "react-bits:scroll-stack": {
+      "roles": ["storytelling", "gallery"],
+      "terms": [
+        "editorial",
+        "scroll",
+        "sequence",
+        "chapters",
+        "layering",
+        "cards",
+        "depth"
+      ],
+      "summary": "Cards reveal in an overlapping stack as the page scrolls."
+    },
+    "react-bits:specular-button": {
+      "roles": ["input", "decoration"],
+      "terms": [
+        "button",
+        "action",
+        "glass",
+        "light",
+        "rim",
+        "pointer",
+        "material"
+      ],
+      "summary": "A glass button carries a shader-driven rim light that sweeps around its edge and follows the cursor."
+    },
+    "react-bits:spotlight-card": {
+      "roles": ["decoration"],
+      "terms": ["card", "pointer", "light", "surface", "edge", "highlight"],
+      "summary": "A pointer-following spotlight lights a card, catches its edge and reaches nearby cards."
+    },
+    "react-bits:stack": {
+      "roles": ["gallery"],
+      "terms": [
+        "editorial",
+        "photography",
+        "cards",
+        "deck",
+        "drag",
+        "flick",
+        "pile",
+        "collection",
+        "commerce",
+        "product"
+      ],
+      "summary": "Cards can be dragged, flicked or clicked through a stack, with thrown cards tucked underneath."
+    },
+    "react-bits:staggered-menu": {
+      "roles": ["navigation"],
+      "terms": ["menu", "links", "open", "close", "sequence", "stagger"],
+      "summary": "A menu opens and closes with staggered item transitions."
+    },
+    "react-bits:stepper": {
+      "roles": ["feedback", "navigation"],
+      "terms": [
+        "workflow",
+        "onboarding",
+        "progress",
+        "steps",
+        "active state",
+        "multi-step",
+        "dashboard"
+      ],
+      "summary": "A multi-step indicator animates transitions between active stages."
+    },
+    "react-bits:tilted-card": {
+      "roles": ["gallery", "decoration"],
+      "terms": [
+        "portfolio",
+        "image",
+        "product",
+        "perspective",
+        "pointer",
+        "tilt",
+        "commerce"
+      ],
+      "summary": "A card tilts in three-dimensional perspective in response to the pointer."
+    },
+    "react-bits:acid-squares": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "immersive",
+        "spatial",
+        "geometric",
+        "crystalline",
+        "corridor",
+        "depth",
+        "squares"
+      ],
+      "summary": "Stacked crystalline squares form a corridor receding into depth."
+    },
+    "react-bits:aero-shards": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "sculptural",
+        "spatial",
+        "foil",
+        "material",
+        "wind",
+        "shards",
+        "pointer"
+      ],
+      "summary": "Folded foil shards form a GPU-driven wind sculpture with responsive pointer interaction."
+    },
+    "react-bits:aurora": {
+      "roles": ["background"],
+      "terms": ["atmosphere", "gradient", "flow", "color", "light", "aurora"],
+      "summary": "A flowing gradient evokes an aurora."
+    },
+    "react-bits:balatro": {
+      "roles": ["background"],
+      "terms": ["game", "shader", "abstract", "color", "interactive", "swirl"],
+      "summary": "An interactive, customizable Balatro-inspired shader fills the background."
+    },
+    "react-bits:ballpit": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "playful",
+        "physics",
+        "spheres",
+        "balls",
+        "bounce",
+        "color",
+        "simulation"
+      ],
+      "summary": "Colorful spheres bounce through a physics-driven ball pit."
+    },
+    "react-bits:beams": {
+      "roles": ["background"],
+      "terms": [
+        "light",
+        "ribbons",
+        "abstract",
+        "crossing",
+        "motion",
+        "atmosphere"
+      ],
+      "summary": "Animated ribbons cross the background."
+    },
+    "react-bits:color-bends": {
+      "roles": ["background"],
+      "terms": ["color", "flow", "abstract", "vibrant", "gradient", "bend"],
+      "summary": "Vibrant bands of color bend and flow."
+    },
+    "react-bits:crt-warp": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "retro",
+        "crt",
+        "plasma",
+        "scanlines",
+        "distortion",
+        "bloom",
+        "pointer",
+        "immersive"
+      ],
+      "summary": "CRT-like plasma covers the canvas with curved distortion, scanlines, bloom and pointer interaction."
+    },
+    "react-bits:dark-veil": {
+      "roles": ["background"],
+      "terms": [
+        "dark",
+        "atmosphere",
+        "calm",
+        "shader",
+        "postprocessing",
+        "ambient"
+      ],
+      "summary": "A dark animated background creates an ambient veil with postprocessing."
+    },
+    "react-bits:dither": {
+      "roles": ["background"],
+      "terms": ["retro", "dither", "noise", "texture", "shader", "digital"],
+      "summary": "A shader creates a retro dithered-noise background."
+    },
+    "react-bits:dot-field": {
+      "roles": ["background"],
+      "terms": [
+        "technical",
+        "dots",
+        "grid",
+        "pointer",
+        "bulge",
+        "glow",
+        "wave"
+      ],
+      "summary": "A dot grid responds to the cursor with bulges, glow, sparkles and waves."
+    },
+    "react-bits:dot-grid": {
+      "roles": ["background"],
+      "terms": [
+        "technical",
+        "dots",
+        "grid",
+        "pointer",
+        "pattern",
+        "interaction"
+      ],
+      "summary": "An animated grid of dots reacts to cursor movement."
+    },
+    "react-bits:evil-eye": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "surreal",
+        "eye",
+        "iris",
+        "pupil",
+        "fire",
+        "glow",
+        "procedural"
+      ],
+      "summary": "A procedural eye animates its iris and slit pupil inside a fiery glow."
+    },
+    "react-bits:faulty-terminal": {
+      "roles": ["background"],
+      "terms": [
+        "technical",
+        "retro",
+        "terminal",
+        "crt",
+        "scanlines",
+        "flicker",
+        "noise"
+      ],
+      "summary": "A CRT terminal-like field combines scanline squares, flicker and noise."
+    },
+    "react-bits:ferrofluid": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "material",
+        "liquid",
+        "magnetic",
+        "contours",
+        "glow",
+        "pointer",
+        "organic"
+      ],
+      "summary": "Magnetic fluid churns beneath glowing contour lines and reacts to a cursor magnet."
+    },
+    "react-bits:floating-lines": {
+      "roles": ["background"],
+      "terms": ["spatial", "3d", "lines", "pointer", "flow", "abstract"],
+      "summary": "Floating three-dimensional lines respond to cursor movement."
+    },
+    "react-bits:galaxy": {
+      "roles": ["hero", "background"],
+      "terms": ["immersive", "space", "stars", "depth", "parallax", "pointer"],
+      "summary": "A starfield responds to the pointer with parallax."
+    },
+    "react-bits:ghost-fibers": {
+      "roles": ["background"],
+      "terms": [
+        "atmosphere",
+        "fibers",
+        "luminous",
+        "radial",
+        "twist",
+        "glow",
+        "abstract"
+      ],
+      "summary": "A recursive fiber field forms luminous bands with radial twisting and atmospheric glow."
+    },
+    "react-bits:gradient-blinds": {
+      "roles": ["background"],
+      "terms": [
+        "gradient",
+        "layers",
+        "blinds",
+        "spotlight",
+        "noise",
+        "distortion"
+      ],
+      "summary": "Layered gradient blinds combine a spotlight with noise distortion."
+    },
+    "react-bits:gradient-waves": {
+      "roles": ["hero", "background"],
+      "terms": ["immersive", "horizon", "landscape", "waves", "haze", "depth"],
+      "summary": "Raymarched sine waves roll toward a hazy horizon."
+    },
+    "react-bits:grainient": {
+      "roles": ["background"],
+      "terms": [
+        "editorial",
+        "texture",
+        "grain",
+        "gradient",
+        "swirl",
+        "soft",
+        "wave"
+      ],
+      "summary": "Grainy gradient swirls move with soft wave distortion."
+    },
+    "react-bits:grid-distortion": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "editorial",
+        "photography",
+        "image",
+        "pointer",
+        "distortion",
+        "grid",
+        "settle"
+      ],
+      "summary": "An image breaks into displaced grid blocks beneath the cursor and then settles."
+    },
+    "react-bits:grid-motion": {
+      "roles": ["hero", "background", "gallery"],
+      "terms": [
+        "editorial",
+        "collection",
+        "photos",
+        "words",
+        "tiles",
+        "perspective",
+        "pointer",
+        "drift"
+      ],
+      "summary": "A tilted wall of photo, text or JSX tiles drifts with the pointer and lights up beneath it."
+    },
+    "react-bits:grid-scan": {
+      "roles": ["hero", "background"],
+      "terms": ["immersive", "technical", "3d", "room", "scan", "grid"],
+      "summary": "A three-dimensional grid room animates with a scanning effect and interaction."
+    },
+    "react-bits:hyperspeed": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "immersive",
+        "cinematic",
+        "speed",
+        "journey",
+        "road",
+        "light trails",
+        "hold"
+      ],
+      "summary": "Glowing trails race along a winding night road that warps into hyperspace while held."
+    },
+    "react-bits:iridescence": {
+      "roles": ["background"],
+      "terms": ["material", "liquid", "iridescent", "folds", "pointer", "stir"],
+      "summary": "A liquid iridescent surface shifts in folds that can be stirred with the cursor."
+    },
+    "react-bits:letter-glitch": {
+      "roles": ["background"],
+      "terms": ["technical", "matrix", "letters", "digital", "glitch", "code"],
+      "summary": "Letters animate through a Matrix-like background."
+    },
+    "react-bits:light-pillar": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "light",
+        "vertical",
+        "glow",
+        "sculptural",
+        "atmosphere",
+        "pillar"
+      ],
+      "summary": "A vertical pillar of light glows against the background."
+    },
+    "react-bits:light-rays": {
+      "roles": ["background"],
+      "terms": [
+        "cinematic",
+        "lighting",
+        "volumetric",
+        "rays",
+        "beams",
+        "direction",
+        "atmosphere"
+      ],
+      "summary": "Volumetric light rays spread in a configurable direction."
+    },
+    "react-bits:light-tunnel": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "immersive",
+        "depth",
+        "tunnel",
+        "fiber optic",
+        "light",
+        "pulses"
+      ],
+      "summary": "Light pulses race into a radial fiber-optic tunnel."
+    },
+    "react-bits:lightfall": {
+      "roles": ["hero", "background"],
+      "terms": ["immersive", "tunnel", "light", "streaks", "depth", "pointer"],
+      "summary": "Colored light streaks rain through a glowing tunnel with a cursor light."
+    },
+    "react-bits:lightning": {
+      "roles": ["background"],
+      "terms": ["energy", "storm", "lightning", "branches", "glow", "flicker"],
+      "summary": "Procedural lightning bolts branch and flicker with glow."
+    },
+    "react-bits:line-waves": {
+      "roles": ["background"],
+      "terms": ["lines", "waves", "color", "distortion", "pattern", "flow"],
+      "summary": "Colored line patterns animate with warped wave distortion."
+    },
+    "react-bits:liquid-chrome": {
+      "roles": ["hero", "background"],
+      "terms": ["material", "metal", "chrome", "reflective", "liquid", "flow"],
+      "summary": "A liquid chrome shader creates a flowing reflective surface."
+    },
+    "react-bits:liquid-ether": {
+      "roles": ["background"],
+      "terms": ["liquid", "flow", "pointer", "distortion", "color", "organic"],
+      "summary": "An interactive liquid shader flows and distorts in configurable colors."
+    },
+    "react-bits:micro-slats": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "immersive",
+        "material",
+        "slats",
+        "perspective",
+        "horizon",
+        "waves",
+        "fluid",
+        "pointer"
+      ],
+      "summary": "Tiny slats become a rolling sea in perspective, with glinting crests and cursor-stirred fluid."
+    },
+    "react-bits:molten-metal": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "material",
+        "metal",
+        "plasma",
+        "caustics",
+        "filaments",
+        "heat",
+        "energy"
+      ],
+      "summary": "Caustic plasma filaments swirl around white-hot molten cores."
+    },
+    "react-bits:orb": {
+      "roles": ["hero", "background"],
+      "terms": ["object", "energy", "sphere", "glow", "hover", "atmosphere"],
+      "summary": "A floating energy orb changes with hover interaction."
+    },
+    "react-bits:particles": {
+      "roles": ["background"],
+      "terms": ["particles", "field", "atmosphere", "abstract", "configurable"],
+      "summary": "A configurable particle system fills the background."
+    },
+    "react-bits:pattern-waves": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "editorial",
+        "material",
+        "halftone",
+        "pattern",
+        "silk",
+        "drape",
+        "ripples",
+        "pointer"
+      ],
+      "summary": "A lit halftone surface moves like draped silk, swells or ripples and reacts to the cursor."
+    },
+    "react-bits:pixel-blast": {
+      "roles": ["background"],
+      "terms": ["digital", "pixel", "particles", "burst", "liquid", "retro"],
+      "summary": "Pixel particles burst across a field with optional liquid postprocessing."
+    },
+    "react-bits:pixel-snow": {
+      "roles": ["background"],
+      "terms": ["pixel", "snow", "falling", "retro", "weather", "atmosphere"],
+      "summary": "Pixelated snow falls with configurable density and speed."
+    },
+    "react-bits:plasma": {
+      "roles": ["background"],
+      "terms": [
+        "organic",
+        "plasma",
+        "gradient",
+        "swirl",
+        "turbulence",
+        "color"
+      ],
+      "summary": "Organic plasma gradients swirl and morph through turbulence."
+    },
+    "react-bits:plasma-wave": {
+      "roles": ["background"],
+      "terms": [
+        "plasma",
+        "waves",
+        "interference",
+        "raymarching",
+        "color",
+        "abstract"
+      ],
+      "summary": "Two raymarched plasma waves create an interference field."
+    },
+    "react-bits:prism": {
+      "roles": ["hero", "background"],
+      "terms": ["object", "geometric", "prism", "rotation", "light", "color"],
+      "summary": "A rotating prism changes appearance through configurable size, intensity and colors."
+    },
+    "react-bits:prismatic-burst": {
+      "roles": ["background"],
+      "terms": ["light", "rays", "burst", "color", "distortion", "energy"],
+      "summary": "A burst of light rays uses configurable color, distortion and amount."
+    },
+    "react-bits:radar": {
+      "roles": ["background"],
+      "terms": ["technical", "radar", "scan", "rings", "spokes", "beam"],
+      "summary": "A rotating radar beam sweeps across concentric rings and radial spokes."
+    },
+    "react-bits:ripple-grid": {
+      "roles": ["background"],
+      "terms": ["grid", "ripple", "wave", "pattern", "continuous", "technical"],
+      "summary": "Ripples animate continuously through a grid."
+    },
+    "react-bits:scanner": {
+      "roles": ["background"],
+      "terms": [
+        "technical",
+        "scan",
+        "interference",
+        "bands",
+        "oscilloscope",
+        "calm"
+      ],
+      "summary": "Interference bands sweep calmly across an oscilloscope-like field."
+    },
+    "react-bits:shape-grid": {
+      "roles": ["background"],
+      "terms": [
+        "geometric",
+        "pattern",
+        "grid",
+        "square",
+        "hexagon",
+        "circle",
+        "triangle"
+      ],
+      "summary": "A directional animated grid supports square, hexagon, circle and triangle shapes."
+    },
+    "react-bits:shape-waves": {
+      "roles": ["hero", "background"],
+      "terms": [
+        "geometric",
+        "pattern",
+        "waves",
+        "text cutout",
+        "triangles",
+        "circles",
+        "squares"
+      ],
+      "summary": "Geometric shapes grow and brighten along rolling waves that can flow around a text cutout."
+    },
+    "react-bits:side-rays": {
+      "roles": ["background"],
+      "terms": ["lighting", "rays", "side", "atmosphere", "color", "speed"],
+      "summary": "Colored light rays animate from the side."
+    },
+    "react-bits:silk": {
+      "roles": ["background"],
+      "terms": ["editorial", "material", "silk", "soft", "lighting", "waves"],
+      "summary": "Smooth waves create a softly lit silk-like background."
+    },
+    "react-bits:sliced-waves": {
+      "roles": ["background"],
+      "terms": ["bars", "light", "grid", "ripple", "equalizer", "pattern"],
+      "summary": "Soft glowing bars ripple across a slatted equalizer-like grid."
+    },
+    "react-bits:soft-aurora": {
+      "roles": ["background"],
+      "terms": ["atmosphere", "soft", "aurora", "noise", "gradient", "color"],
+      "summary": "A soft aurora shader combines three-dimensional noise with gradient palettes."
+    },
+    "react-bits:threads": {
+      "roles": ["background"],
+      "terms": [
+        "editorial",
+        "material",
+        "threads",
+        "silk",
+        "contours",
+        "pointer",
+        "fibers"
+      ],
+      "summary": "Flowing threads fray and part around the cursor, ranging from fine fibers to contour lines."
+    },
+    "react-bits:topography": {
+      "roles": ["background"],
+      "terms": ["landscape", "contours", "map", "elevation", "glow", "organic"],
+      "summary": "A living contour map animates glowing lines tinted by elevation."
+    },
+    "react-bits:waves": {
+      "roles": ["background"],
+      "terms": ["lines", "layered", "waves", "pattern", "flow", "calm"],
+      "summary": "Layered lines form smoothly animated wave patterns."
+    },
+    "react-bits:web-threads": {
+      "roles": ["background"],
+      "terms": ["threads", "light", "convergence", "glow", "sine", "abstract"],
+      "summary": "Glowing sine threads weave through a luminous convergence point."
+    },
+    "react-bits:animated-content": {
+      "roles": ["storytelling"],
+      "terms": [
+        "scroll",
+        "mount",
+        "entrance",
+        "wrapper",
+        "direction",
+        "sequence",
+        "reveal"
+      ],
+      "summary": "A wrapper animates children on scroll or mount with configurable movement and timing."
+    },
+    "react-bits:antigravity": {
+      "roles": ["background", "decoration"],
+      "terms": ["3d", "particles", "repel", "pointer", "field", "spatial"],
+      "summary": "A three-dimensional particle field moves away from the cursor."
+    },
+    "react-bits:blob-cursor": {
+      "roles": ["decoration"],
+      "terms": [
+        "cursor",
+        "liquid",
+        "metal",
+        "jelly",
+        "ink",
+        "droplets",
+        "trail"
+      ],
+      "summary": "A liquid blob cursor stretches, sloshes and bursts into droplets."
+    },
+    "react-bits:click-spark": {
+      "roles": ["feedback", "decoration"],
+      "terms": [
+        "click",
+        "particles",
+        "spark",
+        "burst",
+        "acknowledgement",
+        "playful"
+      ],
+      "summary": "Clicking creates a burst of particles at the click position."
+    },
+    "react-bits:crosshair": {
+      "roles": ["decoration"],
+      "terms": [
+        "cursor",
+        "coordinates",
+        "technical",
+        "measure",
+        "target",
+        "links"
+      ],
+      "summary": "A crosshair cursor shows coordinates and locks onto links and buttons to measure them."
+    },
+    "react-bits:crystalized-ball": {
+      "roles": ["hero", "decoration"],
+      "terms": [
+        "object",
+        "glass",
+        "energy",
+        "dust",
+        "pointer",
+        "click",
+        "glow"
+      ],
+      "summary": "A glass ball holds glowing dust inside an electric rim, responding to pointer movement and clicks."
+    },
+    "react-bits:cubes": {
+      "roles": ["decoration"],
+      "terms": ["3d", "geometry", "cubes", "cluster", "rotation", "hover"],
+      "summary": "A cluster of three-dimensional cubes rotates automatically or through hover interaction."
+    },
+    "react-bits:cursor-grid": {
+      "roles": ["decoration"],
+      "terms": [
+        "cursor",
+        "grid",
+        "cells",
+        "light",
+        "click",
+        "pulse",
+        "technical"
+      ],
+      "summary": "Grid cells light near the cursor with configurable falloff and click pulses."
+    },
+    "react-bits:dither-veil": {
+      "roles": ["hero", "gallery", "decoration"],
+      "terms": [
+        "editorial",
+        "photography",
+        "print",
+        "dither",
+        "color reveal",
+        "pointer",
+        "trail"
+      ],
+      "summary": "A photo appears as a one-bit dither that the cursor burns through to color before the trail closes."
+    },
+    "react-bits:elastic-mesh": {
+      "roles": ["decoration"],
+      "terms": ["material", "mesh", "spring", "pointer", "stretch", "physics"],
+      "summary": "A spring mesh stretches under the pointer and settles with damped physics."
+    },
+    "react-bits:electric-border": {
+      "roles": ["decoration"],
+      "terms": ["border", "energy", "electric", "arcs", "glow", "intensity"],
+      "summary": "An electric border jitters with animated arcs and adjustable glow."
+    },
+    "react-bits:electric-logo": {
+      "roles": ["hero", "decoration"],
+      "terms": [
+        "identity",
+        "logo",
+        "svg",
+        "image",
+        "lightning",
+        "outline",
+        "pointer",
+        "energy"
+      ],
+      "summary": "A logo becomes a lightning outline with flowing strands, outward arcs and a cursor-following charge."
+    },
+    "react-bits:fade-content": {
+      "roles": ["storytelling"],
+      "terms": [
+        "entrance",
+        "exit",
+        "fade",
+        "opacity",
+        "blur",
+        "wrapper",
+        "threshold"
+      ],
+      "summary": "A wrapper fades content into view with optional blur and timed disappearance."
+    },
+    "react-bits:ghost-cursor": {
+      "roles": ["decoration"],
+      "terms": ["cursor", "ghost", "trail", "translucent", "follow"],
+      "summary": "A translucent ghost cursor trails the real cursor."
+    },
+    "react-bits:glare-hover": {
+      "roles": ["decoration"],
+      "terms": ["hover", "light", "glare", "material", "surface", "highlight"],
+      "summary": "A moving glare crosses an element on hover."
+    },
+    "react-bits:glow-cursor": {
+      "roles": ["decoration"],
+      "terms": ["cursor", "light", "trail", "glow", "pulse", "taper"],
+      "summary": "A shader-driven light trail follows the pointer with configurable glow, taper and pulse."
+    },
+    "react-bits:gradual-blur": {
+      "roles": ["decoration"],
+      "terms": [
+        "edge",
+        "blur",
+        "overlay",
+        "header",
+        "footer",
+        "sidebar",
+        "hover",
+        "layering"
+      ],
+      "summary": "Layered backdrop blur softens a container or page edge, with optional visibility and hover transitions."
+    },
+    "react-bits:halftone-reveal": {
+      "roles": ["hero", "gallery", "decoration"],
+      "terms": [
+        "editorial",
+        "print",
+        "halftone",
+        "pointer",
+        "reveal",
+        "content",
+        "texture"
+      ],
+      "summary": "A print-like halftone matrix resolves into sharp content around the cursor."
+    },
+    "react-bits:image-trail": {
+      "roles": ["gallery", "decoration"],
+      "terms": [
+        "editorial",
+        "portfolio",
+        "photography",
+        "cursor",
+        "trail",
+        "images"
+      ],
+      "summary": "Images trail behind the cursor with selectable motion variants."
+    },
+    "react-bits:laser-flow": {
+      "roles": ["hero", "decoration"],
+      "terms": [
+        "cinematic",
+        "light",
+        "beam",
+        "smoke",
+        "dust",
+        "corners",
+        "energy"
+      ],
+      "summary": "A beam splashes onto content and pours over its corners amid drifting smoke and dust."
+    },
+    "react-bits:logo-loop": {
+      "roles": ["gallery"],
+      "terms": [
+        "partners",
+        "logos",
+        "marquee",
+        "repeat",
+        "social proof",
+        "hover pause"
+      ],
+      "summary": "Brand or technology logos loop in a seamless marquee that pauses on hover."
+    },
+    "react-bits:magic-rings": {
+      "roles": ["decoration"],
+      "terms": ["rings", "interactive", "abstract", "energy", "circular"],
+      "summary": "Interactive rings form a configurable visual effect."
+    },
+    "react-bits:magnet": {
+      "roles": ["decoration"],
+      "terms": [
+        "pointer",
+        "hover",
+        "attraction",
+        "spring",
+        "button",
+        "microinteraction"
+      ],
+      "summary": "Elements ease toward the cursor and spring back."
+    },
+    "react-bits:magnet-lines": {
+      "roles": ["background", "decoration"],
+      "terms": ["lines", "field", "magnetic", "pointer", "bend", "technical"],
+      "summary": "A field of lines bends toward the cursor."
+    },
+    "react-bits:meta-balls": {
+      "roles": ["background", "decoration"],
+      "terms": [
+        "organic",
+        "liquid",
+        "blobs",
+        "merge",
+        "separate",
+        "implicit surface"
+      ],
+      "summary": "Liquid-like blobs merge and separate through smooth surface animation."
+    },
+    "react-bits:metallic-paint": {
+      "roles": ["hero", "decoration"],
+      "terms": [
+        "identity",
+        "logo",
+        "svg",
+        "metal",
+        "paint",
+        "material",
+        "liquid"
+      ],
+      "summary": "A liquid metallic-paint shader can be applied to SVG artwork."
+    },
+    "react-bits:noise": {
+      "roles": ["decoration"],
+      "terms": [
+        "editorial",
+        "texture",
+        "grain",
+        "film",
+        "paper",
+        "dust",
+        "static"
+      ],
+      "summary": "A grain overlay adds film, dust, paper or television-static texture to images and surfaces."
+    },
+    "react-bits:orbit-images": {
+      "roles": ["gallery", "decoration"],
+      "terms": ["images", "orbit", "path", "svg", "collection", "composition"],
+      "summary": "Images orbit along a customizable SVG path."
+    },
+    "react-bits:pixel-swap": {
+      "roles": ["storytelling", "decoration"],
+      "terms": [
+        "transition",
+        "pixel",
+        "fragments",
+        "cover",
+        "content swap",
+        "reversible",
+        "digital"
+      ],
+      "summary": "Pixel fragments cover arbitrary content, swap it underneath and dissolve with reversible triggers."
+    },
+    "react-bits:pixel-trail": {
+      "roles": ["decoration"],
+      "terms": ["cursor", "pixel", "trail", "squares", "retro", "digital"],
+      "summary": "Fading pixel squares trail behind the cursor."
+    },
+    "react-bits:pixel-transition": {
+      "roles": ["gallery", "storytelling"],
+      "terms": [
+        "transition",
+        "card",
+        "pixel",
+        "dissolve",
+        "content swap",
+        "retro"
+      ],
+      "summary": "Pixels cover a card, swap its content and dissolve away."
+    },
+    "react-bits:ribbons": {
+      "roles": ["decoration"],
+      "terms": ["cursor", "trail", "ribbons", "physics", "flow", "pointer"],
+      "summary": "Flowing ribbons trail the pointer through physics-driven motion."
+    },
+    "react-bits:ripple-distortion": {
+      "roles": ["hero", "decoration"],
+      "terms": [
+        "editorial",
+        "image",
+        "content",
+        "water",
+        "displacement",
+        "pointer",
+        "wake"
+      ],
+      "summary": "Pointer movement warps content with water-like displacement and leaves a decaying wake."
+    },
+    "react-bits:scroll-expand": {
+      "roles": ["hero", "storytelling", "gallery"],
+      "terms": [
+        "editorial",
+        "immersive",
+        "cinematic",
+        "scroll",
+        "media",
+        "full bleed",
+        "scale",
+        "transition"
+      ],
+      "summary": "A rounded media frame grows to full bleed as it scrolls through the viewport."
+    },
+    "react-bits:shape-blur": {
+      "roles": ["decoration"],
+      "terms": [
+        "identity",
+        "logo",
+        "shape",
+        "focus",
+        "lens",
+        "pointer",
+        "color fringing"
+      ],
+      "summary": "A logo, frame or shape drifts out of focus under the pointer with lens-like color fringing."
+    },
+    "react-bits:splash-cursor": {
+      "roles": ["decoration"],
+      "terms": ["cursor", "liquid", "splash", "ripples", "waves", "burst"],
+      "summary": "Liquid splashes, curling ripples and waves follow cursor interaction."
+    },
+    "react-bits:star-border": {
+      "roles": ["decoration"],
+      "terms": [
+        "border",
+        "outline",
+        "light",
+        "trail",
+        "button",
+        "pill",
+        "card"
+      ],
+      "summary": "A twinkling star travels an element's outline, trailing light and stardust."
+    },
+    "react-bits:sticker-peel": {
+      "roles": ["gallery", "decoration"],
+      "terms": [
+        "editorial",
+        "sticker",
+        "paper",
+        "material",
+        "peel",
+        "corner",
+        "3d"
+      ],
+      "summary": "A sticker corner lifts and peels with three-dimensional transforms and shadow depth."
+    },
+    "react-bits:strands": {
+      "roles": ["background", "decoration"],
+      "terms": [
+        "strands",
+        "ribbons",
+        "light",
+        "transparent",
+        "canvas",
+        "weave"
+      ],
+      "summary": "Glowing ribbon-like strands ripple and weave across a transparent canvas."
+    },
+    "react-bits:swarm-cursor": {
+      "roles": ["decoration"],
+      "terms": ["cursor", "particles", "flock", "swarm", "trail", "physics"],
+      "summary": "Flocking particles chase the pointer, jostle together and drift apart at rest."
+    },
+    "react-bits:target-cursor": {
+      "roles": ["decoration"],
+      "terms": ["cursor", "targets", "corners", "follow", "lock", "hover"],
+      "summary": "Four cursor-following corners lock onto targeted elements."
+    },
+    "react-bits:ascii-text": {
+      "roles": ["hero", "typography"],
+      "terms": [
+        "experimental",
+        "ascii",
+        "headline",
+        "wave",
+        "pointer",
+        "scramble",
+        "click"
+      ],
+      "summary": "ASCII letterforms wave and tilt toward the pointer, scramble on hover and ripple on click."
+    },
+    "react-bits:blur-text": {
+      "roles": ["typography", "storytelling"],
+      "terms": ["text", "headline", "blur", "focus", "reveal", "entrance"],
+      "summary": "Blurred text resolves into a sharp reveal."
+    },
+    "react-bits:circular-text": {
+      "roles": ["typography", "decoration"],
+      "terms": ["lettering", "circle", "rotation", "badge", "seal", "layout"],
+      "summary": "Characters follow a circle with optional rotation."
+    },
+    "react-bits:count-up": {
+      "roles": ["feedback", "typography"],
+      "terms": [
+        "dashboard",
+        "number",
+        "metric",
+        "statistic",
+        "decimal",
+        "formatting"
+      ],
+      "summary": "A number counts toward its value with formatting and decimal support."
+    },
+    "react-bits:curved-loop": {
+      "roles": ["typography", "decoration"],
+      "terms": [
+        "editorial",
+        "marquee",
+        "text",
+        "path",
+        "curve",
+        "drag",
+        "loop"
+      ],
+      "summary": "Looping text flows along a customizable curve with drag interaction."
+    },
+    "react-bits:decrypted-text": {
+      "roles": ["typography"],
+      "terms": [
+        "technical",
+        "text",
+        "decryption",
+        "glyphs",
+        "scramble",
+        "reveal"
+      ],
+      "summary": "Random glyphs cycle until they resolve into readable text."
+    },
+    "react-bits:depth-text": {
+      "roles": ["hero", "typography"],
+      "terms": [
+        "headline",
+        "wordmark",
+        "3d",
+        "extrusion",
+        "parallax",
+        "pointer"
+      ],
+      "summary": "Layered, extruded type shifts in parallax with the pointer."
+    },
+    "react-bits:echo-text": {
+      "roles": ["typography"],
+      "terms": ["headline", "echo", "ghost", "copies", "trail", "settle"],
+      "summary": "Ghosted copies trail behind text and settle into one word."
+    },
+    "react-bits:falling-text": {
+      "roles": ["typography"],
+      "terms": [
+        "playful",
+        "words",
+        "gravity",
+        "physics",
+        "bounce",
+        "drag",
+        "trigger"
+      ],
+      "summary": "Words fall and bounce under gravity when triggered and can be dragged through the physics field."
+    },
+    "react-bits:fold-text": {
+      "roles": ["hero", "typography", "storytelling"],
+      "terms": ["editorial", "headline", "paper", "crease", "unfold", "reveal"],
+      "summary": "Lines of text unfold like creased paper opening flat."
+    },
+    "react-bits:fuzzy-text": {
+      "roles": ["typography"],
+      "terms": [
+        "experimental",
+        "text",
+        "fuzz",
+        "vibration",
+        "hover",
+        "distortion"
+      ],
+      "summary": "Text vibrates with a fuzzy effect and adjustable hover intensity."
+    },
+    "react-bits:glitch-text": {
+      "roles": ["typography"],
+      "terms": ["digital", "retro", "rgb", "glitch", "jitter", "distortion"],
+      "summary": "RGB separation and jitter distort text."
+    },
+    "react-bits:gradient-text": {
+      "roles": ["typography", "decoration"],
+      "terms": [
+        "text",
+        "color",
+        "gradient",
+        "mesh",
+        "outline",
+        "pointer",
+        "highlight"
+      ],
+      "summary": "Color gradients sweep, flow or fan inside text, with optional glow, outlines and pointer response."
+    },
+    "react-bits:masked-heading": {
+      "roles": ["hero", "typography"],
+      "terms": [
+        "editorial",
+        "headline",
+        "image mask",
+        "mesh",
+        "word reveal",
+        "composition"
+      ],
+      "summary": "A headline reveals word by word with an image or drifting color mesh visible inside its glyphs."
+    },
+    "react-bits:particle-text": {
+      "roles": ["hero", "typography"],
+      "terms": [
+        "headline",
+        "particles",
+        "assemble",
+        "scatter",
+        "reform",
+        "transformation"
+      ],
+      "summary": "Drifting particles assemble into text, then scatter and reform on demand."
+    },
+    "react-bits:rotating-text": {
+      "roles": ["typography", "storytelling"],
+      "terms": ["phrases", "cycle", "rotate", "flip", "3d", "sequence"],
+      "summary": "Multiple phrases cycle through three-dimensional rotation or flip transitions."
+    },
+    "react-bits:scrambled-text": {
+      "roles": ["typography"],
+      "terms": ["text", "pointer", "scramble", "distortion", "interactive"],
+      "summary": "Text distorts according to the cursor's position."
+    },
+    "react-bits:scroll-float": {
+      "roles": ["typography", "storytelling"],
+      "terms": ["scroll", "text", "float", "parallax", "reading", "movement"],
+      "summary": "Text floats and shifts in parallax while scrolling."
+    },
+    "react-bits:scroll-reveal": {
+      "roles": ["typography", "storytelling"],
+      "terms": ["editorial", "scroll", "reading", "blur", "reveal", "sequence"],
+      "summary": "Text unblurs and reveals progressively on scroll."
+    },
+    "react-bits:scroll-velocity": {
+      "roles": ["typography", "decoration"],
+      "terms": [
+        "editorial",
+        "marquee",
+        "scroll",
+        "speed",
+        "distortion",
+        "rhythm"
+      ],
+      "summary": "A text marquee changes speed and distortion with the visitor's scrolling velocity."
+    },
+    "react-bits:shiny-text": {
+      "roles": ["typography", "decoration"],
+      "terms": [
+        "text",
+        "sheen",
+        "light",
+        "chrome",
+        "hover",
+        "scroll",
+        "pointer"
+      ],
+      "summary": "Light sweeps across text through configurable sheen bands, reflections and interaction triggers."
+    },
+    "react-bits:shuffle": {
+      "roles": ["typography"],
+      "terms": ["text", "letters", "shuffle", "reveal", "settle", "entrance"],
+      "summary": "Characters shuffle before settling into the final text."
+    },
+    "react-bits:split-flap-text": {
+      "roles": ["typography", "feedback"],
+      "terms": [
+        "departure board",
+        "mechanical",
+        "phrases",
+        "flip",
+        "display",
+        "update"
+      ],
+      "summary": "A mechanical split-flap display clacks through to each new phrase."
+    },
+    "react-bits:split-text": {
+      "roles": ["typography", "storytelling"],
+      "terms": [
+        "text",
+        "headline",
+        "stagger",
+        "characters",
+        "words",
+        "entrance"
+      ],
+      "summary": "Text splits into characters or words for staggered entrance animation."
+    },
+    "react-bits:stroke-text": {
+      "roles": ["hero", "typography"],
+      "terms": [
+        "editorial",
+        "lettering",
+        "outline",
+        "draw",
+        "fill",
+        "headline"
+      ],
+      "summary": "Outlined letterforms draw themselves before flooding with fill."
+    },
+    "react-bits:tech-text": {
+      "roles": ["hero", "typography"],
+      "terms": [
+        "wordmark",
+        "vector",
+        "paths",
+        "letters",
+        "drag",
+        "spring",
+        "pointer"
+      ],
+      "summary": "Wordmark letters turn into dashed paths under the cursor and can be dragged off their baseline before springing back."
+    },
+    "react-bits:text-cursor": {
+      "roles": ["typography", "decoration"],
+      "terms": ["cursor", "text", "trail", "copies", "follow", "experimental"],
+      "summary": "Text follows the cursor and leaves a trail of copies."
+    },
+    "react-bits:text-loop": {
+      "roles": ["typography", "decoration"],
+      "terms": [
+        "editorial",
+        "text",
+        "marquee",
+        "svg",
+        "path",
+        "curved",
+        "loop"
+      ],
+      "summary": "A seamless text marquee flows along curved SVG paths."
+    },
+    "react-bits:text-pressure": {
+      "roles": ["hero", "typography"],
+      "terms": [
+        "headline",
+        "wordmark",
+        "scale",
+        "warp",
+        "pointer",
+        "interactive"
+      ],
+      "summary": "Characters scale and warp according to the pointer's pressure zone."
+    },
+    "react-bits:text-type": {
+      "roles": ["typography", "storytelling"],
+      "terms": [
+        "typewriter",
+        "text",
+        "typing",
+        "cursor",
+        "cadence",
+        "sequence"
+      ],
+      "summary": "Text types out with a blinking cursor and adjustable cadence."
+    },
+    "react-bits:true-focus": {
+      "roles": ["typography", "storytelling"],
+      "terms": ["words", "focus", "blur", "sequence", "clarity", "highlight"],
+      "summary": "Words take turns moving into focus while surrounding text blurs."
+    },
+    "react-bits:variable-proximity": {
+      "roles": ["hero", "typography"],
+      "terms": [
+        "editorial",
+        "variable font",
+        "letters",
+        "pointer",
+        "proximity",
+        "styling"
+      ],
+      "summary": "Letter styling changes continuously with distance from the pointer."
+    },
+    "react-bits:warp-text": {
+      "roles": ["hero", "typography"],
+      "terms": [
+        "headline",
+        "experimental",
+        "refraction",
+        "webgl",
+        "pointer",
+        "bend"
+      ],
+      "summary": "A WebGL effect bends and refracts text around the pointer."
+    },
+    "react-bits:bell-toggle": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "notifications",
+        "toggle",
+        "bell",
+        "pressed state",
+        "label",
+        "spring",
+        "dashboard"
+      ],
+      "summary": "A toggle rings its bell, crossfades its label and expands its pill to reflect the pressed state."
+    },
+    "react-bits:branched-menu": {
+      "roles": ["navigation"],
+      "terms": [
+        "application",
+        "tree",
+        "sections",
+        "hierarchy",
+        "children",
+        "selection",
+        "expand",
+        "dashboard",
+        "documentation"
+      ],
+      "summary": "Menu sections unfold into branches, with an accent line tracing the selected item."
+    },
+    "react-bits:call-chip": {
+      "roles": ["feedback"],
+      "terms": [
+        "application",
+        "tool call",
+        "task",
+        "status",
+        "duration",
+        "success",
+        "error",
+        "retry",
+        "dashboard"
+      ],
+      "summary": "An inline tool-call chip shows progress and elapsed time before resolving to success or error."
+    },
+    "react-bits:code-slots": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "authentication",
+        "one-time code",
+        "otp",
+        "paste",
+        "autofill",
+        "validation",
+        "digits"
+      ],
+      "summary": "Code-input slots animate digits and caret movement, then display success or error states."
+    },
+    "react-bits:comet-dial": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "value",
+        "dial",
+        "angle",
+        "flick",
+        "reading",
+        "velocity",
+        "control",
+        "dashboard"
+      ],
+      "summary": "A flickable dial launches its reading on a spring with a velocity-driven comet trail that disappears at rest."
+    },
+    "react-bits:dodge-field": {
+      "roles": ["decoration"],
+      "terms": ["playful", "pointer", "dodge", "bounds", "escape", "return"],
+      "summary": "A bounded child dodges the pointer a few times before relenting and returning home."
+    },
+    "react-bits:flip-card": {
+      "roles": ["gallery", "storytelling"],
+      "terms": [
+        "card",
+        "two-sided",
+        "3d",
+        "flip",
+        "click",
+        "drag",
+        "flick",
+        "details"
+      ],
+      "summary": "A two-sided card flips by click, drag or flick with spring motion and optional cursor tilt."
+    },
+    "react-bits:folder-float": {
+      "roles": ["navigation", "gallery"],
+      "terms": [
+        "files",
+        "folder",
+        "notes",
+        "hover",
+        "press",
+        "paper",
+        "selection"
+      ],
+      "summary": "A folder opens to lift notes into a floating cloud for selection, then tucks them away."
+    },
+    "react-bits:fuse-button": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "action",
+        "undo",
+        "confirmation",
+        "countdown",
+        "escape",
+        "button"
+      ],
+      "summary": "A completed action turns into an Undo button with a burning timer and Escape support."
+    },
+    "react-bits:glide-select": {
+      "roles": ["input"],
+      "terms": [
+        "select",
+        "options",
+        "menu",
+        "chip",
+        "hover",
+        "highlight",
+        "selection",
+        "dashboard"
+      ],
+      "summary": "A select chip opens a corner-anchored menu whose highlight glides between rows."
+    },
+    "react-bits:hold-button": {
+      "roles": ["input", "feedback"],
+      "terms": ["confirm", "hold", "press", "progress", "button", "release"],
+      "summary": "A hold-to-confirm button fills while pressed, resets on early release and changes its label on completion."
+    },
+    "react-bits:jelly-radio": {
+      "roles": ["input", "feedback"],
+      "terms": ["radio", "selection", "options", "chips", "spring", "tactile"],
+      "summary": "A selected radio chip swells on springs and nudges neighboring choices."
+    },
+    "react-bits:lattice-loader": {
+      "roles": ["feedback"],
+      "terms": [
+        "application",
+        "task",
+        "status",
+        "loading",
+        "duration",
+        "success",
+        "error",
+        "lattice",
+        "dashboard"
+      ],
+      "summary": "A lattice animates beside a task label and stopwatch before resolving into a check or cross."
+    },
+    "react-bits:paper-crumple": {
+      "roles": ["hero", "gallery", "decoration"],
+      "terms": [
+        "editorial",
+        "image",
+        "paper",
+        "material",
+        "3d",
+        "hold",
+        "drag",
+        "crumple",
+        "unfold"
+      ],
+      "summary": "An image crumples into textured three-dimensional paper while held and can be left creased or unfolded."
+    },
+    "react-bits:peek-rating": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "rating",
+        "stars",
+        "preview",
+        "hover",
+        "commit",
+        "label",
+        "selection"
+      ],
+      "summary": "Stars rise in a preview wave as the pointer moves, then pop when the rating is committed."
+    },
+    "react-bits:prompt-bar": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "chat",
+        "composer",
+        "sources",
+        "commands",
+        "model",
+        "attachments",
+        "dictation",
+        "send",
+        "stop"
+      ],
+      "summary": "A chat composer groups sources, commands, model selection and attachments with send-to-stop state transitions."
+    },
+    "react-bits:pulse-heart": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "like",
+        "favorite",
+        "heart",
+        "count",
+        "acknowledgement",
+        "button"
+      ],
+      "summary": "A like button contracts, flips color and pulses back while its count changes."
+    },
+    "react-bits:refine-frame": {
+      "roles": ["feedback"],
+      "terms": [
+        "application",
+        "media",
+        "loading",
+        "generation",
+        "stages",
+        "progress",
+        "error",
+        "retry",
+        "dashboard"
+      ],
+      "summary": "A reserved-aspect media frame moves through queued, generating, refining and complete states with error and retry presentation."
+    },
+    "react-bits:rubber-segment": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "segmented control",
+        "selection",
+        "tabs",
+        "thumb",
+        "drag",
+        "flick",
+        "spring",
+        "dashboard"
+      ],
+      "summary": "A segmented control stretches and squashes its thumb between selections and supports dragging or flicking."
+    },
+    "react-bits:scrub-field": {
+      "roles": ["input"],
+      "terms": [
+        "number",
+        "value",
+        "scrub",
+        "drag",
+        "typing",
+        "range",
+        "control",
+        "dashboard"
+      ],
+      "summary": "A number chip scrubs by dragging and opens for typing on a click, with elastic range limits."
+    },
+    "react-bits:shredder": {
+      "roles": ["input", "feedback"],
+      "terms": ["list", "delete", "drag", "paper", "shred", "rows", "removal"],
+      "summary": "Dragging a row into a shredder cuts it into falling strips and returns the item for application deletion."
+    },
+    "react-bits:slide-commit": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "confirm",
+        "slide",
+        "action",
+        "pending",
+        "success",
+        "error",
+        "progress"
+      ],
+      "summary": "A slide-to-confirm handle shows pending progress, unfolds on success and springs back on failure."
+    },
+    "react-bits:sling-button": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "send",
+        "button",
+        "drag",
+        "release",
+        "slingshot",
+        "power",
+        "action"
+      ],
+      "summary": "A send button stretches like a slingshot and fires the action when released."
+    },
+    "react-bits:slosh-gauge": {
+      "roles": ["feedback", "input"],
+      "terms": [
+        "dashboard",
+        "value",
+        "level",
+        "gauge",
+        "liquid",
+        "progress",
+        "slider"
+      ],
+      "summary": "Liquid in a tank follows a value with sloshing motion and can optionally act as a vertical slider."
+    },
+    "react-bits:spring-check": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "checkbox",
+        "settings",
+        "selection",
+        "checked",
+        "tick",
+        "label",
+        "spring"
+      ],
+      "summary": "One spring fills a checkbox, draws its tick and updates the label's visual state."
+    },
+    "react-bits:squish-switch": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "settings",
+        "toggle",
+        "switch",
+        "boolean",
+        "drag",
+        "flick",
+        "state"
+      ],
+      "summary": "A switch thumb stretches with drag velocity, changes state at the midpoint and squashes at the track edge."
+    },
+    "react-bits:status-mark": {
+      "roles": ["feedback"],
+      "terms": [
+        "application",
+        "task",
+        "status",
+        "idle",
+        "progress",
+        "success",
+        "error",
+        "glyph",
+        "dashboard"
+      ],
+      "summary": "A compact status glyph morphs from an idle ring into progress, success or failure."
+    },
+    "react-bits:swipe-row": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "list",
+        "row",
+        "swipe",
+        "actions",
+        "delete",
+        "flick",
+        "removal",
+        "dashboard"
+      ],
+      "summary": "A list row swipes open to reveal actions and can complete deletion through a full swipe."
+    },
+    "react-bits:swipe-toast": {
+      "roles": ["feedback"],
+      "terms": [
+        "notification",
+        "toast",
+        "dismiss",
+        "swipe",
+        "timer",
+        "hover pause",
+        "inline",
+        "dashboard"
+      ],
+      "summary": "A toast rises into view, tracks its remaining time and can be dismissed with a downward swipe."
+    },
+    "react-bits:tear-ticket": {
+      "roles": ["gallery", "input", "feedback"],
+      "terms": [
+        "ticket",
+        "event",
+        "paper",
+        "material",
+        "perforation",
+        "tear",
+        "used",
+        "3d"
+      ],
+      "summary": "A ticket stub tears along paper fibers, falls away and leaves the body stamped as used."
+    },
+    "react-bits:thought-line": {
+      "roles": ["feedback"],
+      "terms": [
+        "application",
+        "reasoning",
+        "trace",
+        "task",
+        "duration",
+        "steps",
+        "collapse"
+      ],
+      "summary": "A trace header shows elapsed time and incoming steps before settling into a compact completed summary."
+    },
+    "react-bits:voice-pill": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "voice",
+        "microphone",
+        "recording",
+        "levels",
+        "timer",
+        "dictation",
+        "audio"
+      ],
+      "summary": "A microphone button expands into level bars and an elapsed clock; real microphone input is optional."
+    },
+    "react-bits:wake-slider": {
+      "roles": ["input", "feedback"],
+      "terms": [
+        "range",
+        "value",
+        "slider",
+        "bars",
+        "velocity",
+        "drag",
+        "wake",
+        "dashboard"
+      ],
+      "summary": "Dragging a bar-based range slider raises a velocity-driven wake that flattens at rest."
+    },
+    "react-bits:warm-tooltip": {
+      "roles": ["feedback"],
+      "terms": [
+        "tooltip",
+        "help",
+        "hint",
+        "delay",
+        "group",
+        "hover",
+        "label",
+        "dashboard"
+      ],
+      "summary": "A tooltip group waits for its first label, then opens neighboring labels immediately while the group stays active."
+    }
+  }
+}
