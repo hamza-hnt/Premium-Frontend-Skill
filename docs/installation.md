@@ -119,13 +119,13 @@ npm run test:installer:package
 
 `test:installer` exercises controlled installation and update cases. `test:installer:package` checks the actual packed package using temporary destinations, including installation of the skill's locked dependencies. These checks do not publish a package or install into your real skills directory. Network access is required for uncached npm dependencies.
 
-`installer:pack` stages the distributable under `artifacts/npm-package` and prints the resulting package path. For version 1.2.0, it produces `artifacts/premium-frontend-skill-1.2.0.tgz`.
+`installer:pack` stages the distributable under `artifacts/npm-package` and prints the resulting package path. For version 1.2.1, it produces `artifacts/premium-frontend-skill-1.2.1.tgz`. A locally prepared version is not available through `npx ...@latest` until it is published.
 
 To try that local package yourself, choose a new temporary destination:
 
 ```bash
 INSTALLER_TEST_DIR="$(mktemp -d)"
-npm exec --yes --package ./artifacts/premium-frontend-skill-1.2.0.tgz -- premium-frontend-skill install --dest "$INSTALLER_TEST_DIR/skills/premium-frontend-skill"
+npm exec --yes --package ./artifacts/premium-frontend-skill-1.2.1.tgz -- premium-frontend-skill install --dest "$INSTALLER_TEST_DIR/skills/premium-frontend-skill"
 ```
 
 ### Publish to npm

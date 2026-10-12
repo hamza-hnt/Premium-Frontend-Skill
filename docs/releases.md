@@ -24,6 +24,8 @@ The release job uses Node 26.8.1 and npm 12.0.2, with `id-token: write` scoped t
 
 For example, to release `1.2.1` after `1.2.0`:
 
+If the checkout already has the intended version in its package, lockfile and skill metadata, start at step 3. Preparing these files locally does not publish or create a tag.
+
 1. Update `package.json` and its lockfile together:
 
    ```bash

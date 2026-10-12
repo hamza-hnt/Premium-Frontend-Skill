@@ -2,6 +2,14 @@
 
 Installer checks updated on **October 12, 2026 (Europe/Paris)**; catalogue and application evidence below was recorded on October 10. The catalogue uses upstream commit `d86fccbd477786f94ca7eb891fbe0ec039d3cd3b`. This report distinguishes controlled tooling tests from actual upstream retrieval and rendered application checks.
 
+## Version 1.2.1: design defaults and delivery checks
+
+This local revision consolidates contextual visual defaults, specific and truthful copy, component adaptation and the prohibition on em dashes in newly authored interface/marketing copy. Layout originality, motion intensity and information density are independent choices. Integration guidance now explicitly checks relevant loading, empty, error and action-feedback states, contrast and observed performance.
+
+Formatting, TypeScript, catalogue/frontmatter validation, the `v1.2.1` release-version check and **64 controlled tests on Node 26.8.1** pass. The packed installer passes fresh installation, update/backup and custom-destination checks on **Node 22.14.0**, using temporary directories. No installed personal skill copy or test site was changed. These checks validate packaging and tooling, not the visual quality of sites produced with the revised guidance. This preparation did not commit, tag, push or publish a release.
+
+An independent planning evaluation retained an electronic festival's explicitly supplied Inter/violet/neon/translucent brand and proposed a prominent spatial transition without inventing attendance or testimonials. A warehouse brief instead kept dense, stable operational content and specified timeout, empty-search and asynchronous-save behavior. Both identified component candidates and deferred unperformed browser checks. This demonstrates different planning choices under the guidance; no new site was built or rendered for this evaluation.
+
 ## Skill installer and npm packaging
 
 On macOS arm64, **62 controlled tests passed** on both Node **22.14.0** and **26.8.1**. The 20 installer cases cover destination resolution, fresh installation, updates and complete backups, legacy copies, local edits during preparation, concurrent locks, archive/file integrity, unsafe paths and symlinks, failed dependency/validation steps, rollback and recovery. Custom home destinations and nested skills directories have separate coverage.

@@ -4,7 +4,7 @@
 
 **Turn a short brief into a distinctive React experience.**
 
-Art direction, purposeful [React Bits](https://reactbits.dev) interactions, and visual review — in a reusable coding-agent skill.
+Art direction, purposeful [React Bits](https://reactbits.dev) interactions, and visual review in a reusable coding-agent skill.
 
 [Install](#install) · [Use it](#use-it) · [Examples](examples/briefs.md) · [Documentation](docs/installation.md)
 
@@ -14,10 +14,10 @@ Art direction, purposeful [React Bits](https://reactbits.dev) interactions, and 
 
 ## What you get
 
-- **A design workflow:** composition, typography, assets, responsive layouts and motion, adapted to your brief.
+- **A design workflow:** deliberate choices about layout, motion and information density, with specific content and a coherent visual identity.
 - **A complete React Bits index:** 215 components and 860 implementation variants, with searchable guidance for every component.
 - **Real component integration:** pinned source, integrity checks and protection for existing project files.
-- **A review process:** inspect the experience on desktop and mobile, in motion and with reduced motion enabled.
+- **A review process:** inspect desktop and mobile layouts, functional states, contrast, accessibility, motion and performance.
 
 Use it for landing pages, portfolios, shops, dashboards or improving an existing React app. The skill guides your agent; your brief and brand rules determine the style.
 
