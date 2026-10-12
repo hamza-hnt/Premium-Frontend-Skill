@@ -37,6 +37,7 @@ export async function checkRelease(root: string, tag: string) {
 
   return {
     version,
-    archive: `artifacts/premium-frontend-skill-${version}.tgz`,
+    // npm can interpret an unprefixed two-segment path as GitHub shorthand.
+    archive: `./artifacts/premium-frontend-skill-${version}.tgz`,
   };
 }

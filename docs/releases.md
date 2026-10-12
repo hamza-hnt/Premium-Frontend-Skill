@@ -61,7 +61,10 @@ Existing installations update only when users run that command. Publishing a ver
 
 - **Version mismatch:** correct all version files before creating the release tag.
 - **Authentication failure:** check the npm trusted publisher fields, its expiry and direct `npm publish` permission. The workflow does not use `npm login` or a token secret.
+- **`EALLOWGIT` for an archive:** relative npm archive paths must start with `./`. Without it, npm can interpret `artifacts/package.tgz` as GitHub shorthand. The installer smoke check exercises the release path with `npm publish --dry-run` before any real publication.
 - **Version already published:** npm versions are immutable. Check npm before rerunning a failed job; if publication succeeded, do not attempt to overwrite that version. Ship changes under the next version.
 - **Package still processing:** the registry can take a few minutes to expose an accepted publication. Check `npm view premium-frontend-skill@1.2.1 version` before attempting another publish.
 
 Local checks validate the workflow and package behavior. The OIDC exchange is verified only when the configured GitHub workflow successfully publishes a new version.
+
+A GitHub rerun keeps the original commit and workflow, so pushing a fix to `main` does not repair an existing run. If a release failed before reaching npm, maintainers can manually publish an archive rebuilt from that exact release commit, or ship the fix under a new version and release tag. Keep the existing public tag stable. See [GitHub's rerun behavior](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs).

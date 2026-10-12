@@ -31,7 +31,7 @@ test("release guard requires matching stable versions before publishing", async 
   await write();
   assert.deepEqual(await checkRelease(root, "v1.2.1"), {
     version: "1.2.1",
-    archive: "artifacts/premium-frontend-skill-1.2.1.tgz",
+    archive: "./artifacts/premium-frontend-skill-1.2.1.tgz",
   });
   await write(pkg, lock, skill.replace(/\n/g, "\r\n"));
   assert.equal((await checkRelease(root, "v1.2.1")).version, "1.2.1");

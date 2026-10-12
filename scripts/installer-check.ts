@@ -11,13 +11,17 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { cli, hash, json, ROOT } from "./lib/core.js";
 import { buildInstaller, packInstaller } from "./lib/installer-package.js";
+import { checkRelease } from "./lib/release.js";
 import { runNpm } from "../installer/install.mjs";
 
 await cli(async () => {
   const scratch = await mkdtemp(join(tmpdir(), "premium-installer-consumer-"));
   try {
     const built = await buildInstaller(join(scratch, "npm-package"));
-    const packed = await packInstaller(built.directory, scratch);
+    const packed = await packInstaller(
+      built.directory,
+      join(scratch, "artifacts"),
+    );
     assert.deepEqual(
       packed.files.sort(),
       [
@@ -65,6 +69,25 @@ await cli(async () => {
         ],
         { cwd: project, env },
       );
+
+    console.log("Checking the release archive with npm publish --dry-run...");
+    const release = await checkRelease(ROOT, `v${built.version}`);
+    await runNpm(
+      [
+        "publish",
+        release.archive,
+        "--dry-run",
+        // Only in this non-publishing check: allow reruns of published versions.
+        "--force",
+        "--ignore-scripts",
+        "--access",
+        "public",
+        "--tag",
+        "latest",
+        "--registry=https://registry.npmjs.org/",
+      ],
+      { cwd: scratch, env },
+    );
 
     console.log("Checking the packed npm executable and fresh installation...");
     assert.match((await invoke(["--help"])).stdout, /--dest/);
@@ -154,6 +177,7 @@ await cli(async () => {
         node: process.version,
         package: "actual npm tarball via npm exec",
         cases: [
+          "release archive publish dry-run (no publication)",
           "help/version",
           "CODEX_HOME",
           "paths with spaces",
