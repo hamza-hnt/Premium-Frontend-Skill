@@ -1,0 +1,2 @@
+# Keep text consistent across checkouts and distributable archives.
+* text=auto eol=lf

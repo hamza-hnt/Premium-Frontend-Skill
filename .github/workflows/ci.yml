@@ -90,6 +90,9 @@ jobs:
       - name: Test installer failure and update handling
         run: npm run test:installer
 
+      - name: Validate Unix and Windows skill line endings
+        run: node --import tsx --test tests/validate.test.ts
+
       - name: Exercise packed installer in temporary directories
         run: npm run test:installer:package
 

@@ -12,7 +12,11 @@ await cli(async () => {
   for (const id of Object.keys(annotations))
     if (!c.components.some((c) => c.id === id))
       throw new Error(`Orphan annotation: ${id}`);
-  const skill = await readFile(resolve(ROOT, "SKILL.md"), "utf8");
+  // Accept Windows checkouts without rewriting bytes covered by installer hashes.
+  const skill = (await readFile(resolve(ROOT, "SKILL.md"), "utf8")).replace(
+    /\r\n/g,
+    "\n",
+  );
   if (
     !skill.startsWith("---\nname: premium-frontend-skill\n") ||
     !/^description: .+/m.test(skill)

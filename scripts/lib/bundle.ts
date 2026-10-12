@@ -19,6 +19,7 @@ export const INCLUDED = [
   "tsconfig.json",
   ".nvmrc",
   ".gitignore",
+  ".gitattributes",
   ".prettierignore",
   "providers",
   "registry",

@@ -12,6 +12,12 @@ The npm package contains six files: its manifest, README, two executable modules
 
 CI now includes installer checks on Ubuntu, macOS and Windows, with Node 22 and an additional Ubuntu Node 26 job. **Linux and Windows runs have not been executed in this local validation.** No npm publication or host automatic skill-discovery check was performed, and no installed personal skill copy or test website was modified.
 
+### Windows line-ending regression
+
+The first reported Windows GitHub Actions run failed in the packed installation with `Invalid skill frontmatter`. The validator required LF line endings, while the installer correctly accepted and preserved CRLF files. A new test reproduced the failure by running the actual validation CLI against a CRLF copy of the skill on macOS.
+
+The validator now normalizes line endings only in memory, preserving the original bytes used by archive and installation hashes. `.gitattributes` also requests LF text checkouts. The regression exercises LF and CRLF, rejects incorrect names and missing descriptions, and confirms validation does not rewrite the skill. It runs explicitly in every installer CI job. **63 controlled tests pass on Node 22.14.0 locally**; a new Windows CI run is still required to confirm the fix on that runner.
+
 ## Version 1.2: discovery and design guidance
 
 The upstream HEAD still matched the pinned revision during this update. The official pinned registry manifest was compared with the catalogue: **860 of 860 variant names matched, with no missing or extra entries**. All **215 logical components** have validated discovery roles, search terms and behavior summaries. Source metadata and the 20 detailed curated annotations retain their existing provenance and evidence status.
