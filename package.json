@@ -14,13 +14,17 @@
     "components:install": "tsx scripts/install.ts",
     "validate": "tsx scripts/validate.ts",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/*.test.ts",
+    "test": "tsx --test tests/*.test.ts tests/*.test.mjs",
+    "test:installer": "node --test tests/skill-installer.test.mjs",
+    "test:installer:package": "tsx scripts/installer-check.ts",
     "examples:create": "tsx examples/create.ts",
     "test:browser": "tsx examples/browser-check.ts",
     "test:live": "tsx scripts/live-check.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "skill:bundle": "tsx scripts/bundle.ts",
+    "skill:install": "tsx scripts/install-skill.ts",
+    "installer:pack": "tsx scripts/package-installer.ts",
     "test:consumer": "tsx scripts/consumer-check.ts"
   },
   "dependencies": {
@@ -33,6 +37,7 @@
     "@types/node": "26.6.5",
     "@types/semver": "7.8.0",
     "prettier": "3.6.2",
+    "tar": "7.5.22",
     "tsx": "4.23.15",
     "typescript": "5.9.3"
   }

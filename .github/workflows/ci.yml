@@ -49,5 +49,49 @@ jobs:
       - name: Build distributable skill archive
         run: npm run skill:bundle
 
+      - name: Build npm installer package
+        run: npm run installer:pack
+
+      - name: Ensure checks leave tracked files unchanged
+        run: git diff --exit-code
+
+  installer:
+    name: Installer / ${{ matrix.os }} / Node ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            node: "22.14.0"
+          - os: macos-14
+            node: "22.14.0"
+          - os: windows-2022
+            node: "22.14.0"
+          - os: ubuntu-24.04
+            node: "26"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --include=dev --include=optional
+
+      - name: Test installer failure and update handling
+        run: npm run test:installer
+
+      - name: Exercise packed installer in temporary directories
+        run: npm run test:installer:package
+
       - name: Ensure checks leave tracked files unchanged
         run: git diff --exit-code

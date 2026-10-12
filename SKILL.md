@@ -21,7 +21,7 @@ Default to headings and buttons without terminal periods, upright display typogr
 
 ## Locate the tools
 
-Set `SKILL_ROOT` to the absolute directory containing this file, not the current application directory. Before running the CLI, check its dependencies and run `(cd "$SKILL_ROOT" && npm ci)` if they are missing. Read-only advice or design planning can use references and selective catalogue reads without installing dependencies. Set `TARGET_PROJECT` to the explicit absolute application path and `COMPONENT_ID` to an ID selected from search results. Commands resolve their own metadata and references relative to the skill installation.
+Set `SKILL_ROOT` to the absolute directory containing this file, not the current application directory. Before running the CLI, check its dependencies and run `(cd "$SKILL_ROOT" && npm ci --include=dev --include=optional)` if they are missing. Read-only advice or design planning can use references and selective catalogue reads without installing dependencies. Set `TARGET_PROJECT` to the explicit absolute application path and `COMPONENT_ID` to an ID selected from search results. Commands resolve their own metadata and references relative to the skill installation.
 
 ```bash
 npm --prefix "$SKILL_ROOT" run components:search -- --query "image gallery" --limit 5 --json

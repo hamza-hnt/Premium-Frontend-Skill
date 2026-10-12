@@ -1,6 +1,16 @@
 # Verification report
 
-Verified on **October 10, 2026 (Europe/Paris)**. The catalogue uses upstream commit `d86fccbd477786f94ca7eb891fbe0ec039d3cd3b`. This report distinguishes controlled tooling tests from actual upstream retrieval and rendered application checks.
+Installer checks updated on **October 12, 2026 (Europe/Paris)**; catalogue and application evidence below was recorded on October 10. The catalogue uses upstream commit `d86fccbd477786f94ca7eb891fbe0ec039d3cd3b`. This report distinguishes controlled tooling tests from actual upstream retrieval and rendered application checks.
+
+## Skill installer and npm packaging
+
+On macOS arm64, **62 controlled tests passed** on both Node **22.14.0** and **26.8.1**. The 20 installer cases cover destination resolution, fresh installation, updates and complete backups, legacy copies, local edits during preparation, concurrent locks, archive/file integrity, unsafe paths and symlinks, failed dependency/validation steps, rollback and recovery. Custom home destinations and nested skills directories have separate coverage.
+
+The actual packed npm executable was exercised through `npm exec` with **npm 10.9.2 and 12.0.2**, using temporary destinations and fresh npm caches. Both runs passed: help/version, `CODEX_HOME`, paths with spaces, installation under production/omitted-dev settings, exact lockfile preservation, catalogue validation/search, existing-copy refusal, update with local-edit backup, custom destination and an unchanged caller project. The checkout command `npm run skill:install -- --dest ...` also passed on Node 22.14.0.
+
+The npm package contains six files: its manifest, README, two executable modules, the skill archive and its integrity manifest. The private root package is not published; no npm lifecycle hook installs the skill. The embedded archive preserves the skill's lockfile and excludes dependencies, Git history, caches, generated sites and upstream component implementation code. TypeScript, formatting, catalogue validation and workflow lint checks passed.
+
+CI now includes installer checks on Ubuntu, macOS and Windows, with Node 22 and an additional Ubuntu Node 26 job. **Linux and Windows runs have not been executed in this local validation.** No npm publication or host automatic skill-discovery check was performed, and no installed personal skill copy or test website was modified.
 
 ## Version 1.2: discovery and design guidance
 

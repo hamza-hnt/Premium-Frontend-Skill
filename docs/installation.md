@@ -1,94 +1,135 @@
-# Setup and local skill installation
+# Installation and tooling
 
-Supported tooling runtime: **Node.js 22.12+ below 27**, with npm and Git (tested with 2.55.0; offline Git reads require `--no-lazy-fetch`). `.nvmrc` selects Node 22.14.0. Runtime support claims and exact versions tested are detailed in the [verification report](verification.md). The lockfile pins the skill's dependencies. TypeScript 5.9.3 is intentionally pinned for its stable AST API.
+The installer prepares the full skill and its dependencies in one operation. Supported runtime: **Node.js 22.12 or newer, below 27**, with npm. `.nvmrc` selects Node 22.14.0. Git is needed to clone this repository and to refresh upstream metadata; using the installed catalogue and retrieving pinned component source do not require Git.
 
-Commands use Bash-compatible syntax for macOS, Linux or WSL. Native PowerShell setup has not been tested. The [README quickstart](../README.md#install-in-codex) installs directly into the user-level skills directory. Use the options below if you want to keep a separate development checkout or install for just one project.
+Commands below use Bash-compatible syntax. Exact platform and runtime checks are recorded in the [verification report](verification.md); a CI configuration alone is not proof that a platform has passed.
 
-## Separate development checkout
-
-In a directory of your choice, replace `REPOSITORY_URL` with this repository's HTTPS clone URL from GitHub's **Code** menu:
+## Install from GitHub
 
 ```bash
-git clone "REPOSITORY_URL" premium-frontend-skill &&
-  cd premium-frontend-skill &&
-  npm ci &&
-  npm run validate &&
-  npm test
+git clone https://github.com/hamza-hnt/Premium-Frontend-Skill.git premium-frontend-skill
+cd premium-frontend-skill
+npm ci --include=dev
+npm run skill:install
 ```
 
-Use plain `npm ci`, including development dependencies: `tsx` and TypeScript are required by the skill's commands. Keep `node_modules` on each machine where you run the skill; Git and the portable bundle exclude it.
+This keeps the development checkout separate from the installed copy. The installer:
 
-The local tooling needs no API keys or shadcn initialization. The consuming agent supplies design judgment and uses its own account access. Optional image generation requires an image-generation tool available to that agent.
+1. Checks Node/npm and the destination.
+2. Extracts the complete skill into a temporary staging directory.
+3. Runs `npm ci --include=dev --include=optional` and `npm run validate` there.
+4. Moves the prepared skill into place only after those checks pass.
 
-## Install a portable copy
+The default destination is `$CODEX_HOME/skills/premium-frontend-skill` when `CODEX_HOME` is set, or `~/.codex/skills/premium-frontend-skill` otherwise. The installer prints the resolved path. It refuses existing destinations unless `--update` is supplied; symlinks and unrelated directories are not update targets.
 
-The [Codex documentation](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills) lists repository `.agents/skills` and user `~/.agents/skills` locations and supports symlinked skill folders. Install in one discovery location. If your Codex installation uses `~/.codex/skills`, substitute that directory below.
+No transpilation or website build is required during skill setup. Its commands use `tsx` and TypeScript, so development dependencies must be installed. `node_modules` stays local and is excluded from Git and distributable packages. Setup needs network access for dependencies, but no extra API keys, backend or shadcn configuration.
 
-Run this from the development checkout to package the full skill without Git history, dependencies, caches or generated examples. Set `SKILLS_DIR` to your chosen destination; the commands stop if a skill of the same name already exists:
+## Choose a location
+
+`--dest` is the **complete final skill folder**, not its parent:
 
 ```bash
-(
-  set -eu
-  SKILL_ROOT="$(pwd -P)"
-  SKILLS_DIR="$HOME/.agents/skills"
-  DESTINATION="$SKILLS_DIR/premium-frontend-skill"
-  if [ -e "$DESTINATION" ] || [ -L "$DESTINATION" ]; then
-    echo "Destination already exists: $DESTINATION" >&2
-    exit 1
-  fi
-  npm run skill:bundle -- --output "$SKILL_ROOT/artifacts/premium-frontend-skill.tar.gz"
-  mkdir -p "$SKILLS_DIR"
-  tar -xzf "$SKILL_ROOT/artifacts/premium-frontend-skill.tar.gz" -C "$SKILLS_DIR"
-  cd "$DESTINATION"
-  npm ci
-  npm run validate
-)
+npm run skill:install -- --dest "$HOME/.agents/skills/premium-frontend-skill"
 ```
 
-The **entire skill folder** is required: scripts, providers, schema, catalogue, annotations, references, package manifest and lockfile. Copying only `SKILL.md` cannot work. You can also copy the whole checkout with `cp -R` to a destination that does not exist, then run `npm ci` there; that also copies any local Git history and generated files present in the checkout.
-
-## Optional project-local symlink
-
-From the development checkout, replace the target path with your React project's absolute path. This shares the checkout and its installed dependencies with one project. The commands stop if the destination already exists:
+For a skill available only to one project:
 
 ```bash
-(
-  set -eu
-  SKILL_ROOT="$(pwd -P)"
-  TARGET_PROJECT="/absolute/path/to/your/react-app"
-  test -d "$TARGET_PROJECT"
-  DESTINATION="$TARGET_PROJECT/.agents/skills/premium-frontend-skill"
-  if [ -e "$DESTINATION" ] || [ -L "$DESTINATION" ]; then
-    echo "Destination already exists: $DESTINATION" >&2
-    exit 1
-  fi
-  mkdir -p "$TARGET_PROJECT/.agents/skills"
-  ln -s "$SKILL_ROOT" "$DESTINATION"
-)
+npm run skill:install -- --dest "/absolute/path/to/your/react-app/.agents/skills/premium-frontend-skill"
 ```
+
+Use the discovery directory configured for your agent. The [Codex documentation](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills) also describes user-level `~/.agents/skills` and repository `.agents/skills`. Avoid duplicate copies in multiple discovery directories.
+
+The entire skill folder is required: instructions, references, scripts, providers, catalogue, package manifest and lockfile. Copying only `SKILL.md` is insufficient. The installer uses a JavaScript archive library; it does not need a system `tar` executable at runtime.
 
 ## Invoke the skill
 
-Open the React project in Codex and invoke `$premium-frontend-skill` with your brief, or explicitly ask the agent to read `SKILL.md` at its installed path. Restart Codex if the skill does not appear. See the [README example](../README.md#use-it) for a short prompt. Host discovery is documented from official instructions; see the verification report for the extent of local host testing.
+Open your React project in Codex and mention `$premium-frontend-skill` in your brief. See the [README example](../README.md#use-it). Restart Codex if the skill does not appear, or ask the agent to read `SKILL.md` at its installed path.
+
+The agent supplies design judgment and uses its own account access. Optional image generation requires a tool available to that agent. Installing this skill does not generate a site or publish an application.
 
 ## Updates
 
-For a Git clone, run the following inside the installed skill directory (or inside the source checkout for a symlink):
+From the original development checkout:
 
 ```bash
 git pull --ff-only
-npm ci
-npm run validate
+npm ci --include=dev
+npm run skill:install -- --update
 ```
 
-If Git reports local changes or diverging commits, reconcile those changes before updating. For an archive or copied installation, prepare and validate the new version in a separate directory, then replace the old installation after preserving any local edits. Do not extract a new archive over an existing installation.
+If you chose a custom destination, repeat it:
+
+```bash
+npm run skill:install -- --update --dest "$HOME/.agents/skills/premium-frontend-skill"
+```
+
+The new copy is prepared and validated before the old installation is replaced. The installer retains the complete previous folder and prints its backup path. For a destination inside a `skills` directory, staging and backups live beside that directory in `.premium-frontend-installer`, outside skill discovery. For other custom layouts, this state directory lives in the destination's parent. It reports changes to managed files so you can recover your customizations from the backup; it does not merge edits into the new copy.
+
+Staging and the destination must share a filesystem, and the state directory must be writable. If a process is interrupted, the next run identifies its destination lock; remove only that lock after checking that the previous process has stopped. Backups are retained until you remove them yourself.
+
+An existing manual installation with the matching skill/package identity can be updated and backed up too. A symlink or unrelated folder is rejected. If Git reports local changes or diverging commits in your checkout, reconcile them before pulling a new version.
+
+## Installer commands
+
+From a development checkout, `npm run skill:install -- <options>` builds and launches the installer. Its packaged command supports:
+
+```text
+premium-frontend-skill [install] [--dest <complete-skill-folder>] [--update]
+premium-frontend-skill --help
+premium-frontend-skill --version
+```
+
+The package is **not published on npm yet**. Once published under this name, users can install it without cloning the repository:
+
+```bash
+npx premium-frontend-skill@latest install
+npx premium-frontend-skill@latest install --update
+```
+
+## Package and test the installer
+
+The repository's root package remains private. A packaging command creates a separate distributable npm package containing the executable installer and a full versioned skill archive, including its lockfile. The skill archive excludes dependencies, Git history, caches, generated applications and upstream component implementation code.
+
+Run these checks from the checkout:
+
+```bash
+npm run format:check
+npm run typecheck
+npm test
+npm run validate
+npm run test:installer
+npm run installer:pack
+npm run test:installer:package
+```
+
+`test:installer` exercises controlled installation and update cases. `test:installer:package` checks the actual packed package using temporary destinations, including installation of the skill's locked dependencies. These checks do not publish a package or install into your real skills directory. Network access is required for uncached npm dependencies.
+
+`installer:pack` stages the distributable under `artifacts/npm-package` and prints the resulting package path. For version 1.2.0, it produces `artifacts/premium-frontend-skill-1.2.0.tgz`.
+
+To try that local package yourself, choose a new temporary destination:
+
+```bash
+INSTALLER_TEST_DIR="$(mktemp -d)"
+npm exec --yes --package ./artifacts/premium-frontend-skill-1.2.0.tgz -- premium-frontend-skill install --dest "$INSTALLER_TEST_DIR/skills/premium-frontend-skill"
+```
+
+### Publish to npm
+
+Publication is a separate, manual step for maintainers. Confirm ownership or availability of the package name, authenticate with your npm account, review the packed contents, and use the filename printed by `installer:pack`:
+
+```bash
+npm publish ./artifacts/premium-frontend-skill-1.2.0.tgz --access public
+```
+
+Do not run `npm publish` against the private repository root. Update the package version for subsequent releases, rerun the checks, and publish the newly generated archive. No test, install command or CI job publishes automatically. See npm's [publishing guide](https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages/) for account requirements.
 
 ## Ordinary use from another project
 
 Run these from the React project's root. Adjust `SKILL_ROOT` if you chose a different installation location:
 
 ```bash
-SKILL_ROOT="$HOME/.agents/skills/premium-frontend-skill"
+SKILL_ROOT="${CODEX_HOME:-$HOME/.codex}/skills/premium-frontend-skill"
 TARGET_PROJECT="$(pwd -P)"
 npm --prefix "$SKILL_ROOT" run components:search -- --query "subtle text reveal" --limit 5 --json
 npm --prefix "$SKILL_ROOT" run components:search -- --query "hero" --limit 8 --json
@@ -103,7 +144,7 @@ npm --prefix "$SKILL_ROOT" run components:install -- --id react-bits:blur-text -
 
 Search and inspect include editorial discovery guidance for every component, separately labelled from upstream descriptions and runtime evidence. `--role` filters possible uses: `hero`, `background`, `typography`, `gallery`, `navigation`, `storytelling`, `feedback`, `input` or `decoration`. `--category` still filters the upstream taxonomy. Broad role queries diversify similarly relevant results across categories; exact component names and IDs stay prominent. Refine by behavior after exploring a broad role. Search ranking is not a visual quality score.
 
-The plan includes a dependency command represented as an argv array. Execute it in the target project using its package manager after review. The installer does not modify dependencies or config. This avoids half-rolled-back package manager operations and respects npm, pnpm, Yarn and Bun independently of this skill's npm setup. Target manager detection is tested with controlled fixtures; only npm live integration is claimed.
+The plan includes a dependency command represented as an argv array. Execute it in the target project using its package manager after review. The component source installer does not modify application dependencies or config. The skill installer separately prepares the skill's own dependencies. This avoids half-rolled-back package manager operations and respects npm, pnpm, Yarn and Bun independently of this skill's npm setup. Target manager detection is tested with controlled fixtures; only npm live integration is claimed.
 
 Examples using the generated fixture:
 
@@ -163,11 +204,11 @@ npm run format:check
 
 ## Troubleshooting
 
-- **Missing module/tooling:** run `npm ci` at the installed skill root. Do not copy only its entrypoint.
+- **Missing module/tooling:** run `npm ci --include=dev --include=optional` at the installed skill root. Do not copy only its entrypoint.
 - **TypeScript parser API missing:** use the lockfile; do not replace TypeScript 5.9.3 with a newer major without migrating the adapter.
 - **Blocked npm install scripts:** identify the affected package in the package manager output and check whether it is required for your platform. Address any missing executable before running the skill.
 - **Tailwind styles absent:** inspect the target CSS pipeline and include the downloaded component directory in source scanning. A dependency declaration alone is insufficient.
-- **Collision or local edit:** inspect the manifest and diff the pinned source. Automatic overwrite is intentionally unavailable.
+- **Component collision or local edit:** inspect the manifest and diff the pinned source. Automatic overwrite is intentionally unavailable.
 - **Stale install lock:** confirm no installation is running, then remove only that abandoned `.premium-frontend/install.lock`. Do not remove another running process's lock.
 - **Source hash mismatch:** keep the existing files. Remove only the affected corrupt download cache after inspection or resync deliberately; never bypass integrity checks.
 - **Unresolved source import:** inspect the variant; try a complete alternative, or review the official CLI fallback. Do not accept a partial install.

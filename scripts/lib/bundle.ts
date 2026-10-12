@@ -1,10 +1,16 @@
-import { mkdtemp, mkdir, readdir, lstat, cp, rm } from "node:fs/promises";
+import {
+  mkdtemp,
+  mkdir,
+  readdir,
+  lstat,
+  cp,
+  rm,
+  readFile,
+} from "node:fs/promises";
 import { resolve, dirname, join } from "node:path";
 import { tmpdir } from "node:os";
-import { execFile } from "node:child_process";
-import { promisify } from "node:util";
-import { ROOT } from "./core.js";
-const exec = promisify(execFile);
+import { create, list } from "tar";
+import { ROOT, hash } from "./core.js";
 export const INCLUDED = [
   "SKILL.md",
   "README.md",
@@ -21,12 +27,29 @@ export const INCLUDED = [
   "tests",
   "examples",
   "docs",
+  "installer",
 ];
 async function rejectLinks(path: string): Promise<void> {
   const stat = await lstat(path);
   if (stat.isSymbolicLink()) throw new Error(`Cannot bundle symlink: ${path}`);
+  if (!stat.isFile() && !stat.isDirectory())
+    throw new Error(`Cannot bundle special file: ${path}`);
   if (stat.isDirectory())
     for (const name of await readdir(path)) await rejectLinks(join(path, name));
+}
+async function fileHashes(
+  root: string,
+  prefix = "",
+): Promise<Record<string, string>> {
+  const files: Record<string, string> = {};
+  for (const entry of await readdir(join(root, prefix), {
+    withFileTypes: true,
+  })) {
+    const name = prefix ? `${prefix}/${entry.name}` : entry.name;
+    if (entry.isDirectory()) Object.assign(files, await fileHashes(root, name));
+    else files[name] = hash(await readFile(join(root, name)));
+  }
+  return files;
 }
 export async function bundle(output: string) {
   const out = resolve(output);
@@ -39,11 +62,25 @@ export async function bundle(output: string) {
       await cp(resolve(ROOT, name), resolve(dest, name), { recursive: true });
     }
     await mkdir(dirname(out), { recursive: true });
-    // tar only receives our staged allowlist. Caches and generated applications cannot enter the archive.
-    await exec("tar", ["-czf", out, "-C", staging, "premium-frontend-skill"]);
-    const entries = (await exec("tar", ["-tzf", out])).stdout
-      .trim()
-      .split("\n");
+    const files = await fileHashes(dest);
+    // Archive only the staged allowlist, using Node so packaging also works on Windows.
+    await create(
+      {
+        file: out,
+        cwd: staging,
+        gzip: true,
+        portable: true,
+        mtime: new Date(0),
+      },
+      ["premium-frontend-skill"],
+    );
+    const entries: string[] = [];
+    await list({
+      file: out,
+      onReadEntry: (entry) => {
+        entries.push(entry.path);
+      },
+    });
     if (
       entries.some((p) =>
         /\/(?:node_modules|\.cache|\.local|artifacts|\.git)\//.test(p),
@@ -54,6 +91,7 @@ export async function bundle(output: string) {
       output: out,
       entries: entries.length,
       containsUpstreamSource: false,
+      files,
     };
   } finally {
     await rm(staging, { recursive: true, force: true });
