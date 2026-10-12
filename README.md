@@ -8,6 +8,12 @@ Art direction, purposeful [React Bits](https://reactbits.dev) interactions, and 
 
 [Install](#install) · [Use it](#use-it) · [Examples](examples/briefs.md) · [Documentation](docs/installation.md)
 
+<a href="https://www.youtube.com/watch?v=6va2xQ9dSEA">
+  <img src="https://raw.githubusercontent.com/hamza-hnt/Premium-Frontend-Skill/main/.github/assets/demo-preview.png" alt="Watch the High Renaissance café website demo on YouTube" width="960" />
+</a>
+
+**[Watch the demo on YouTube](https://www.youtube.com/watch?v=6va2xQ9dSEA)**
+
 </div>
 
 ---
