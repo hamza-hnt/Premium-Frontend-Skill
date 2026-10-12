@@ -23,7 +23,32 @@ Use it for landing pages, portfolios, shops, dashboards or improving an existing
 
 ## Install
 
-You need **Node.js 22.12 or newer, below 27**, npm, and Git for the clone step.
+You need **Node.js 22.12 or newer, below 27**, and npm.
+
+```bash
+npx premium-frontend-skill@latest install
+```
+
+The installer copies the full skill to `~/.codex/skills/premium-frontend-skill`, installs its dependencies and validates it. If you set `CODEX_HOME`, it uses that directory's `skills/` folder instead. No separate build step is needed to use the skill.
+
+To choose a different location, pass the **complete destination folder**:
+
+```bash
+npx premium-frontend-skill@latest install --dest "$HOME/.agents/skills/premium-frontend-skill"
+```
+
+To update an existing installation, with a backup of the previous copy:
+
+```bash
+npx premium-frontend-skill@latest install --update
+```
+
+Repeat `--dest` when updating a custom location. See [updates and backups](docs/installation.md#updates) for details.
+
+<details>
+<summary>Prefer installing from GitHub?</summary>
+
+With Git installed:
 
 ```bash
 git clone https://github.com/hamza-hnt/Premium-Frontend-Skill.git premium-frontend-skill
@@ -32,26 +57,7 @@ npm ci --include=dev
 npm run skill:install
 ```
 
-The installer copies the full skill to `~/.codex/skills/premium-frontend-skill`, installs its dependencies and validates it. If you set `CODEX_HOME`, it uses that directory's `skills/` folder instead. No separate build step is needed to use the skill.
-
-To choose a different location, pass the **complete destination folder**:
-
-```bash
-npm run skill:install -- --dest "$HOME/.agents/skills/premium-frontend-skill"
-```
-
-Already installed? See [updates and backups](docs/installation.md#updates). The installer refuses to overwrite an existing installation unless you explicitly request an update.
-
-<details>
-<summary>Future one-command installation with npx</summary>
-
-The npm package has **not been published yet**. After publication, the intended command is:
-
-```bash
-npx premium-frontend-skill@latest install
-```
-
-Until then, use the GitHub installation above. Maintainers can [build and test the npm package locally](docs/installation.md#package-and-test-the-installer).
+This keeps your development checkout separate from the installed skill.
 
 </details>
 
@@ -85,6 +91,7 @@ There is no fixed visual style or component quota. A portfolio can be expressive
 | Component selection and integration guidance | [Selection](references/component-selection.md) · [Integration](references/integration-and-validation.md) |
 | Catalogue sources, licensing and limitations | [Sources](docs/sources.md)                                                                               |
 | Checks performed and their scope             | [Verification](docs/verification.md)                                                                     |
+| Publishing a new version                     | [Release guide](docs/releases.md)                                                                        |
 
 The repository includes the skill instructions, references, catalogue and command-line tools. React Bits implementation code is retrieved on demand, with its pinned upstream licence notice preserved. See [sources and licensing](docs/sources.md) before redistributing component code.
 

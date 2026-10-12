@@ -25,6 +25,7 @@
     "skill:bundle": "tsx scripts/bundle.ts",
     "skill:install": "tsx scripts/install-skill.ts",
     "installer:pack": "tsx scripts/package-installer.ts",
+    "release:check": "tsx scripts/check-release.ts",
     "test:consumer": "tsx scripts/consumer-check.ts"
   },
   "dependencies": {

@@ -1,0 +1,63 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-npm
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Verify release
+    if: ${{ !github.event.release.prerelease }}
+    uses: ./.github/workflows/ci.yml
+
+  publish:
+    name: Publish verified package
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Check out the verified commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+
+      - name: Set up Node.js for trusted publishing
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: "26.8.1"
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Pin an OIDC-capable npm CLI
+        run: npm install --global npm@12.0.2 --ignore-scripts
+
+      - name: Install locked dependencies
+        run: npm ci --include=dev --include=optional
+
+      - name: Check release tag and package versions
+        id: release
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: npm run release:check -- --tag "$RELEASE_TAG"
+
+      - name: Build npm installer package
+        run: npm run installer:pack
+
+      - name: Ensure packaging leaves tracked files unchanged
+        run: git diff --exit-code
+
+      - name: Publish archive using npm trusted publishing
+        env:
+          PACKAGE_ARCHIVE: ${{ steps.release.outputs.archive }}
+        run: npm publish "$PACKAGE_ARCHIVE" --access public --tag latest --ignore-scripts --registry=https://registry.npmjs.org/

@@ -10,7 +10,13 @@ The actual packed npm executable was exercised through `npm exec` with **npm 10.
 
 The npm package contains six files: its manifest, README, two executable modules, the skill archive and its integrity manifest. The private root package is not published; no npm lifecycle hook installs the skill. The embedded archive preserves the skill's lockfile and excludes dependencies, Git history, caches, generated sites and upstream component implementation code. TypeScript, formatting, catalogue validation and workflow lint checks passed.
 
-CI now includes installer checks on Ubuntu, macOS and Windows, with Node 22 and an additional Ubuntu Node 26 job. **Linux and Windows runs have not been executed in this local validation.** No npm publication or host automatic skill-discovery check was performed, and no installed personal skill copy or test website was modified.
+CI includes installer checks on Ubuntu, macOS and Windows, with Node 22 and an additional Ubuntu Node 26 job. **Linux and Windows runs have not been executed in this local validation.** Those initial checks did not publish to npm or exercise host automatic skill discovery. No installed personal skill copy or test website was modified.
+
+### Published package and release workflow
+
+After the maintainer published `premium-frontend-skill@1.2.0`, the public registry exposed the matching SHA-1 `1214e029301477fa6276ffec656bde2d008611f0`. A fresh-cache installation of that published package passed on macOS arm64 with Node 22.14.0/npm 10.9.2: CLI version, real dependency installation into a temporary destination, catalogue validation and a `BlurText` search. Temporary files were removed; personal skill directories were untouched.
+
+The new release workflow reuses the full CI and checks tag/package/lockfile/skill version agreement before publishing. **64 controlled tests pass on Node 22.14.0 and 26.8.1**, including rejection of mismatched versions, invalid tags and an unexpectedly publishable repository root. The updated local package passes the complete packed-installer smoke check on Node 26.8.1. TypeScript, formatting, catalogue validation and actionlint pass. These local checks do not verify the OIDC exchange; that requires npm trusted publisher setup and a successful future GitHub release.
 
 ### Windows line-ending regression
 
@@ -132,4 +138,4 @@ The generated fixtures were initially installed with `npm install`; their result
 
 Chromium on macOS only; no Safari, Firefox, real touch device, screen-reader session, GPU benchmark or broad React/framework compatibility matrix. Axe incomplete contrast findings remain explicit. There is no claim of universal accessibility, SSR support or measured performance risk. Fonts are local system fonts. Settings persistence is session-local; no backend was requested. Some source asset requirements cannot be inferred statically. Source installation reports but does not automatically install dependencies. CLI fallback configuration/installation was not completed. Codex automatic discovery was documented from current official instructions but not activated globally. No global agent configuration was changed.
 
-Aceternity and V2 are documented roadmap items only. Nothing was published, pushed or deployed, and the skill archive does not redistribute React Bits implementations.
+Aceternity and V2 are documented roadmap items only. The original V1 validation did not publish, push or deploy anything; later npm publication evidence is recorded above. The skill archive does not redistribute React Bits implementations.

@@ -4,7 +4,15 @@ The installer prepares the full skill and its dependencies in one operation. Sup
 
 Commands below use Bash-compatible syntax. Exact platform and runtime checks are recorded in the [verification report](verification.md); a CI configuration alone is not proof that a platform has passed.
 
-## Install from GitHub
+## Install from npm
+
+```bash
+npx premium-frontend-skill@latest install
+```
+
+This downloads the published installer and prepares the skill without requiring a Git clone. Use `premium-frontend-skill@1.2.0` instead of `@latest` to select a specific release.
+
+### Install from GitHub instead
 
 ```bash
 git clone https://github.com/hamza-hnt/Premium-Frontend-Skill.git premium-frontend-skill
@@ -29,13 +37,13 @@ No transpilation or website build is required during skill setup. Its commands u
 `--dest` is the **complete final skill folder**, not its parent:
 
 ```bash
-npm run skill:install -- --dest "$HOME/.agents/skills/premium-frontend-skill"
+npx premium-frontend-skill@latest install --dest "$HOME/.agents/skills/premium-frontend-skill"
 ```
 
 For a skill available only to one project:
 
 ```bash
-npm run skill:install -- --dest "/absolute/path/to/your/react-app/.agents/skills/premium-frontend-skill"
+npx premium-frontend-skill@latest install --dest "/absolute/path/to/your/react-app/.agents/skills/premium-frontend-skill"
 ```
 
 Use the discovery directory configured for your agent. The [Codex documentation](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills) also describes user-level `~/.agents/skills` and repository `.agents/skills`. Avoid duplicate copies in multiple discovery directories.
@@ -50,18 +58,24 @@ The agent supplies design judgment and uses its own account access. Optional ima
 
 ## Updates
 
-From the original development checkout:
+To install the latest published version and back up the previous copy:
 
 ```bash
-git pull --ff-only
-npm ci --include=dev
-npm run skill:install -- --update
+npx premium-frontend-skill@latest install --update
 ```
 
 If you chose a custom destination, repeat it:
 
 ```bash
-npm run skill:install -- --update --dest "$HOME/.agents/skills/premium-frontend-skill"
+npx premium-frontend-skill@latest install --update --dest "$HOME/.agents/skills/premium-frontend-skill"
+```
+
+Or update from the original development checkout:
+
+```bash
+git pull --ff-only
+npm ci --include=dev
+npm run skill:install -- --update
 ```
 
 The new copy is prepared and validated before the old installation is replaced. The installer retains the complete previous folder and prints its backup path. For a destination inside a `skills` directory, staging and backups live beside that directory in `.premium-frontend-installer`, outside skill discovery. For other custom layouts, this state directory lives in the destination's parent. It reports changes to managed files so you can recover your customizations from the backup; it does not merge edits into the new copy.
@@ -80,7 +94,7 @@ premium-frontend-skill --help
 premium-frontend-skill --version
 ```
 
-The package is **not published on npm yet**. Once published under this name, users can install it without cloning the repository:
+The npm package exposes the same commands without cloning the repository:
 
 ```bash
 npx premium-frontend-skill@latest install
@@ -116,13 +130,15 @@ npm exec --yes --package ./artifacts/premium-frontend-skill-1.2.0.tgz -- premium
 
 ### Publish to npm
 
-Publication is a separate, manual step for maintainers. Confirm ownership or availability of the package name, authenticate with your npm account, review the packed contents, and use the filename printed by `installer:pack`:
+Maintainers normally publish through a stable GitHub release after the complete CI passes. See the [release guide](releases.md) for one-time npm trusted publisher setup and versioning.
+
+For a manual publication, authenticate with your npm account, review the packed contents, and use the filename printed by `installer:pack`. For example, after bumping and packaging the next version `1.2.1`:
 
 ```bash
-npm publish ./artifacts/premium-frontend-skill-1.2.0.tgz --access public
+npm publish ./artifacts/premium-frontend-skill-1.2.1.tgz --access public
 ```
 
-Do not run `npm publish` against the private repository root. Update the package version for subsequent releases, rerun the checks, and publish the newly generated archive. No test, install command or CI job publishes automatically. See npm's [publishing guide](https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages/) for account requirements.
+Do not run `npm publish` against the private repository root. Each subsequent release needs a new version. Pushes, pull requests, tests and install commands do not publish; the separate release workflow does. See npm's [publishing guide](https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages/) for account requirements.
 
 ## Ordinary use from another project
 
